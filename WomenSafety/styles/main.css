@@ -14,13 +14,52 @@ body
 
 #sendmessagebutton
 {
-    height: 200px;
-    width: 200px;
-    border-radius: 200px;
-    border: 1px solid #000;
-    text-align : center;
-    margin-left : 10px; 
-    margin-top : 15px;
-    margin-right : 10px;
-    margin-bottom : 20px;
+        -webkit-transform: rotateX( 35deg );
+        position: relative;
+        display: inline-block;
+        width: 100px;
+        padding: 42px 15px;
+        margin-left : 80px;;
+        margin-right : auto;
+        margin-top : 100px;
+    
+        background-color: #FF00FF;
+        color: #fff;
+        font-weight: bold;
+        font-size: 40px;
+        text-decoration: none;
+        text-align: center;
+        text-shadow: 0px -1px 0px rgba(0,0,0,0.5);
+
+        border: 1px solid;
+        border-color: #B21522;
+        border-radius: 78px;
+        -moz-border-radius: 78px;
+        -webkit-border-radius: 78px;
+
+        box-shadow: 		inset 0px -4px 5px rgba(255,255,255,0.2),
+                            inset 0px 1px 5px rgba(255,255,255,0.2),
+                            /**/
+                            0px 12px 0px #231F20,
+                            0px 14px 0px #231F20,
+                            0px 16px 0px #231F20,
+                            /**/
+                            0px 8px 5px rgba(0,0,0,0.5);
+
+        -moz-box-shadow: 	inset 0px -4px 5px rgba(255,255,255,0.2),
+                            inset 0px 1px 5px rgba(255,255,255,0.2),
+                            /**/
+                            0px 12px 0px #231F20,
+                            0px 14px 0px #231F20,
+                            0px 16px 0px #231F20,
+                            /**/
+                            0px 8px 5px rgba(0,0,0,0.5);
+
+        -webkit-box-shadow: inset 5px -4px 5px rgba(255,255,255,0.2),
+                            inset 5px 1px 5px rgba(255,255,255,0.2),
+                            /**/
+                            0px 12px 0px #231F20,
+                            0px 14px 0px #231F20,
+                            0px 16px 0px #231F20;
+
 }

@@ -18,7 +18,7 @@
         
          <!-- Home View -->
         <div data-role="view" id="homeview" data-title="Home">
-           <a data-role="button" data-click="sendmessages">Help Me</a> <br/>
+           <a data-role="button" id="sendmessagebutton" data-click="sendmessages">\FW/</a> <br/>
             Track My Location
            <input type="checkkbox" data-role="switch" id="tracklocationswitch" />
            
@@ -26,8 +26,12 @@
 
         <!-- Add Numbers View -->
         <div data-role="view" id="numbersview" data-title="Add Numbers" >
-            
-            Add Numbers 
+            <span>Your Friends</span>
+            <input id="numberinputbox" type="tel" /> 
+            <div class="buttonArea">               
+                <a id="addfriendsbuttonButton" data-role="button" data-click="addnumbers" data-icon="add">Add Friend</a>
+            </div>
+           
         </div>
         
         
@@ -47,7 +51,7 @@
                 </div>
             </div>
         </div>
-
+   
         <script>
             var app = new kendo.mobile.Application(document.body, { transition: "slide", layout: "mobile-tabstrip" });
         </script>

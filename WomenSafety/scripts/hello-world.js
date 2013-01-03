@@ -1,4 +1,5 @@
-﻿// JavaScript Document
+// JavaScript Document
+ var contactsarray=[];
 
 // Wait for PhoneGap to load
 document.addEventListener("deviceready", onDeviceReady, false);
@@ -6,6 +7,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 // PhoneGap is ready
 function onDeviceReady() {
     getLocation();
+    
 }
 
 function getLocation() {
@@ -23,15 +25,6 @@ function sayHello() {
     sayHelloInputElem.style.display = 'none';
 }
 
-function sayHelloReset() {
-    var sayHelloInputElem = document.getElementById('helloWorldInput');
-    var sayHelloTextElem = document.getElementById('helloWorldText');
-    var inputText = document.getElementById('txtName');
-
-    inputText.value = '';
-    sayHelloTextElem.style.display = 'none';
-    sayHelloInputElem.style.display = 'block';
-}
 
 //=======================Geolocation Operations=======================//
 // onGeolocationSuccess Geolocation
@@ -57,4 +50,35 @@ function onGeolocationSuccess(position) {
 // onGeolocationError Callback receives a PositionError object
 function onGeolocationError(error) {
     $("#myLocation").html("<span class='err'>" + error.message + "</span>");
+}
+
+
+function sendmessages()
+{
+    
+    
+    
+}
+function addnumbers()
+{
+    console.log('a'); 
+    var numberstoadd = document.getElementById('numberinputbox').value;
+     var friendscontact = [];
+     if (localStorage.friendscontactstorage)
+    {
+         console.log("if"); 
+        friendscontact = JSON.parse(localStorage.getItem('friendscontactstorage'));
+        friendscontact.push({frind:numberstoadd});
+        
+    }
+    else
+    {
+        console.log("else"+ numberstoadd);
+        friendscontact.push({frind:numberstoadd});
+        
+    }
+    localStorage.setItem('friendscontactstorage', JSON.stringify(friendscontact));
+    console.log(friendscontact);
+    
+    
 }
