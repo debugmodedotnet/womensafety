@@ -69,8 +69,25 @@ function onGeolocationError(error) {
 
 function sendmessages(e)
 {
+     
+     var  friendsfronlocalstoragetosendmessage=[];
+    var numberstosend ="";
+    if (localStorage.friendscontactstorage)
+        {
+            friendsfronlocalstoragetosendmessage = JSON.parse(localStorage["friendscontactstorage"]);
+             for(var i =0;i<friendsfronlocalstoragetosendmessage.length;i++)
+                {
+                        
+                        numberstosend = friendsfronlocalstoragetosendmessage[i].friend + "," + numberstosend ;
+                }
+         
+         window.location.href = "sms:" + numberstosend + "?body=" + "hello test message";
+        }
     
-    console.log("hi");
+   
+    
+    console.log(numberstosend);
+    
     
 }
 function addnumbers(e)
