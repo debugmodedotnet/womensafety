@@ -1,13 +1,18 @@
 // JavaScript Document
  var contactsarray=[];
+var friendscontact = [];
 
 // Wait for PhoneGap to load
 document.addEventListener("deviceready", onDeviceReady, false);
 
 $(document).ready(function(){
     
-     console.log("hi");
-     document.getElementById("addfriendsbutton").addEventListener("onclick",sendmessages,false);
+    
+   
+    $("#addfriendsbutton").click(function() {
+        
+               addnumbers();
+        });
 });   
 
 
@@ -15,7 +20,6 @@ $(document).ready(function(){
 function onDeviceReady() {
     getLocation();
    
-    console.log("hi");
     
 }
 
@@ -73,7 +77,7 @@ function addnumbers(e)
     
    console.log("hi");
     var numberstoadd = document.getElementById('numberinputbox').value;
-     var friendscontact = [];
+     
      if (localStorage.friendscontactstorage)
     {
          
@@ -89,6 +93,17 @@ function addnumbers(e)
     }
     localStorage.setItem('friendscontactstorage', JSON.stringify(friendscontact));
     console.log(friendscontact);
+    var friendsdata = new kendo.data.DataSource({
+     data: friendscontact
+    
+});
+    
+}
+
+
+
+function showfriends()
+{
     
     
 }

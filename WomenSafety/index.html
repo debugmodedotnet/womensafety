@@ -23,18 +23,36 @@
            
         </div>
 
-        <!-- Add Numbers View -->
+        <!-- Settings View -->
         <div data-role="view" id="settingsview" data-title="Settings" >            
             <input id="numberinputbox" type="tel" /> 
             <div >               
                 <a id="addfriendsbutton" data-role="button" data-icon="add">Add Friend</a>
             </div>
+            <ul id="friendlist"
+					data-template="friendstemplate"					
+					data-endlessScroll="true"
+					data-role="listview"
+                    data-source="friendsdata"
+					data-style="inset">
+			</ul>
              Track My Location
            <input type="checkkbox" data-role="switch" id="tracklocationswitch" />
             <br/>
           Test/Evaluation Mode
            <input type="checkkbox" data-role="switch" id="modeswitch" />
         </div>
+        
+        
+        
+          <!-- Template to display Friends Numbers -->
+        
+        <script type= "text/x-kendo-template" id="friendstemplate">
+            <div>			
+            #= friend #
+            <a data-role="button" data-icon="trash" />
+          </div>    
+		</script>
         
         
           <!-- Resource  View -->
