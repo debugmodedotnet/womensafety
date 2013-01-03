@@ -6,15 +6,7 @@ var friendsfronlocalstorage ;
 // Wait for PhoneGap to load
 document.addEventListener("deviceready", onDeviceReady, false);
 
-$(document).ready(function(){
-    
-    
-   
-    $("#addfriendsbutton").click(function() {
-        
-               addnumbers();
-        });
-});   
+  
 
 
 // PhoneGap is ready
@@ -69,8 +61,8 @@ function onGeolocationError(error) {
 
 function sendmessages(e)
 {
-     
-     var  friendsfronlocalstoragetosendmessage=[];
+    
+    var  friendsfronlocalstoragetosendmessage=[];
     var numberstosend ="";
     if (localStorage.friendscontactstorage)
         {
@@ -83,10 +75,10 @@ function sendmessages(e)
          
          window.location.href = "sms:" + numberstosend + "?body=" + "hello test message";
         }
-    
-   
-    
-    console.log(numberstosend);
+    else
+    {
+        window.location.href = "sms:" + numberstosend + "?body=" + "hello test message";
+    }
     
     
 }
@@ -94,25 +86,28 @@ function sendmessages(e)
 
 function addnumbers(e)
 {
-    
-   console.log("hi");
+   
+   
     var numberstoadd = document.getElementById('numberinputbox').value;
      
      if (localStorage.friendscontactstorage)
     {
-         
-        friendscontact = JSON.parse(localStorage.getItem('friendscontactstorage'));
+       
+        friendscontact = JSON.parse(localStorage["friendscontactstorage"]);
         friendscontact.push({friend:numberstoadd});
-        
+       
     }
     else
     {
-        
         friendscontact.push({friend:numberstoadd});
         
     }
-    localStorage.setItem('friendscontactstorage', JSON.stringify(friendscontact));
-    console.log(friendscontact);
+    
+    
+    
+    localStorage["friendscontactstorage"]= JSON.stringify(friendscontact);
+    
+  
    
     
 }
@@ -121,33 +116,31 @@ function showfriends(e)
 {
    
       
-     if (localStorage.friendscontactstorage)
-{
-     friendsfronlocalstorage = JSON.parse(localStorage["friendscontactstorage"]);
-}
-    var friendsdata = new kendo.data.DataSource(
-                {
+	if (localStorage.friendscontactstorage) {
+		friendsfronlocalstorage = JSON.parse(localStorage["friendscontactstorage"]);
+	}
+	var friendsdata = new kendo.data.DataSource(
+		{
                    
-                  data : friendsfronlocalstorage
+		data : friendsfronlocalstorage
                             
-         });
+	});
     
     
    
     
-     if(friendsdata != null)
-    {
-       friendsdata.fetch(); 
-    }
+	if (friendsdata != null) {
+		friendsdata.fetch(); 
+	}
    
-    var template1 = kendo.template($("#friendstemplate").text());
-    $("#friendlist").kendoMobileListView({
-    dataSource: friendsdata,
-    template:template1,
-    style:"inset"
+	var template1 = kendo.template($("#friendstemplate").text());
+	$("#friendlist").kendoMobileListView({
+		dataSource: friendsdata,
+		template:template1,
+		style:"inset"
    
-    });
-    
+	});
+	
    
     
 }
