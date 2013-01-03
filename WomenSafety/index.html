@@ -19,8 +19,7 @@
          <!-- Home View -->
         <div data-role="view" id="homeview" data-title="Home">
            <a data-role="button" id="sendmessagebutton" data-click="sendmessages">\FW/</a> <br/>
-            Track My Location
-           <input type="checkkbox" data-role="switch" id="tracklocationswitch" />
+           
            
         </div>
 
@@ -30,9 +29,27 @@
             <div >               
                 <a id="addfriendsbutton" data-role="button" data-icon="add">Add Friend</a>
             </div>
+             Track My Location
+           <input type="checkkbox" data-role="switch" id="tracklocationswitch" />
+            <br/>
+          Test/Evaluation Mode
+           <input type="checkkbox" data-role="switch" id="modeswitch" />
+        </div>
+        
+        
+          <!-- Resource  View -->
+        <div data-role="view" id="resourceview" data-title="Resource">
+           
+           Resource coming soon 
            
         </div>
         
+          <!-- Report View -->
+        <div data-role="view" id="reportview" data-title="Report">
+          
+           Report coming soon 
+           
+        </div>
         
         <!--Layout of the Application -->
         
@@ -46,8 +63,8 @@
             <div data-role="footer">
                 <div data-role="tabstrip">
                     <a href="#homeview" data-icon="home">Home</a>                     
-                    <a href="#numbersview" data-icon="share">Report</a> 
-                    <a href="#numbersview" data-icon="organize">Resources</a> 
+                    <a href="#reportview" data-icon="share">Report</a> 
+                    <a href="#resourceview" data-icon="organize">Resources</a> 
                      <a href="#settingsview" data-icon="settings">Settings</a> 
                 </div>
             </div>

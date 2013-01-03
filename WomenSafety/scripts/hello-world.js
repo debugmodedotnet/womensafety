@@ -4,11 +4,18 @@
 // Wait for PhoneGap to load
 document.addEventListener("deviceready", onDeviceReady, false);
 
+$(document).ready(function(){
+    
+     console.log("hi");
+     document.getElementById("addfriendsbutton").addEventListener("onclick",sendmessages,false);
+});   
+
 
 // PhoneGap is ready
 function onDeviceReady() {
     getLocation();
-    document.getElementById("addfriendsbutton").addEventListener("onclick",addnumbers,false);
+   
+    console.log("hi");
     
 }
 
@@ -61,21 +68,22 @@ function sendmessages(e)
     console.log("hi");
     
 }
-function addnumbers()
+function addnumbers(e)
 {
     
+   console.log("hi");
     var numberstoadd = document.getElementById('numberinputbox').value;
      var friendscontact = [];
      if (localStorage.friendscontactstorage)
     {
-         console.log("if"); 
+         
         friendscontact = JSON.parse(localStorage.getItem('friendscontactstorage'));
         friendscontact.push({friend:numberstoadd});
         
     }
     else
     {
-        console.log("else"+ numberstoadd);
+        
         friendscontact.push({friend:numberstoadd});
         
     }
