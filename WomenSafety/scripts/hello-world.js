@@ -1,6 +1,7 @@
 // JavaScript Document
  var contactsarray=[];
 var friendscontact = [];
+var friendsfronlocalstorage ;
 
 // Wait for PhoneGap to load
 document.addEventListener("deviceready", onDeviceReady, false);
@@ -93,10 +94,7 @@ function addnumbers(e)
     }
     localStorage.setItem('friendscontactstorage', JSON.stringify(friendscontact));
     console.log(friendscontact);
-    var friendsdata = new kendo.data.DataSource({
-     data: friendscontact
-    
-});
+   
     
 }
 
@@ -105,5 +103,44 @@ function addnumbers(e)
 function showfriends()
 {
     
+     var friendsdata = new kendo.data.DataSource({
+     data: friendscontact
+    
+      });
+    
+    friendsdata.read();
+}
+function showfriends(e)
+{
+   
+      
+     if (localStorage.friendscontactstorage)
+{
+     friendsfronlocalstorage = JSON.parse(localStorage["friendscontactstorage"]);
+}
+    var friendsdata = new kendo.data.DataSource(
+                {
+                   
+                  data : friendsfronlocalstorage
+                            
+         });
+    
+    
+   
+    
+     if(friendsdata != null)
+    {
+       friendsdata.fetch(); 
+    }
+   
+    var template1 = kendo.template($("#friendstemplate").text());
+    $("#friendlist").kendoMobileListView({
+    dataSource: friendsdata,
+    template:template1,
+    style:"inset"
+   
+    });
+    
+   
     
 }

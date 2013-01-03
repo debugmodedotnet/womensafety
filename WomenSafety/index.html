@@ -24,17 +24,15 @@
         </div>
 
         <!-- Settings View -->
-        <div data-role="view" id="settingsview" data-title="Settings" >            
+        <div data-role="view" id="settingsview" data-title="Settings" data-show="showfriends" >            
             <input id="numberinputbox" type="tel" /> 
             <div >               
                 <a id="addfriendsbutton" data-role="button" data-icon="add">Add Friend</a>
             </div>
-            <ul id="friendlist"
-					data-template="friendstemplate"					
+            <ul id="friendlist"										
 					data-endlessScroll="true"
-					data-role="listview"
-                    data-source="friendsdata"
-					data-style="inset">
+					data-role="listview"                    
+					>
 			</ul>
              Track My Location
            <input type="checkkbox" data-role="switch" id="tracklocationswitch" />
