@@ -90,6 +90,8 @@ function sendmessages(e)
     
     
 }
+
+
 function addnumbers(e)
 {
     
@@ -115,18 +117,6 @@ function addnumbers(e)
     
 }
 
-
-
-function showfriends()
-{
-    
-     var friendsdata = new kendo.data.DataSource({
-     data: friendscontact
-    
-      });
-    
-    friendsdata.read();
-}
 function showfriends(e)
 {
    
