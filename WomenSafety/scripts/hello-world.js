@@ -139,7 +139,8 @@ function showfriends(e)
 	$("#friendlist").kendoMobileListView({
 		dataSource: friendsdata,
 		template:template1,
-		style:"inset"
+		style:"inset",
+        endlessScroll: true
    
 	});
 	
@@ -164,3 +165,7 @@ function deletefriend(e)
 function removeByIndex(arr, index) {
     arr.splice(index, 1);
 }
+
+function closeModalViewLogin() {
+        $("#modalview-setting").kendoMobileModalView("close");
+    }

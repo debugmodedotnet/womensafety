@@ -1,41 +1,65 @@
 
 #numberinputbox
 {
-    border: 1px solid #AAA;
+    border: 1px solid #B80000 ;
     border-radius: 15px;
-    position:relative;
-    margin-left: 0.5em;
-    margin-right: 0.5em;
+    margin-left: 0.8em;
+    margin-right : auto;
     margin-top: 0.5em;
-    margin-bottom: 0.3em;
     background:white;
     color: red;
-    padding: 8px;
     font-weight: bold;
-    font-size: 22px;
-   
+    font-size: 22px;    
+    padding: 8px;
     
 }
 #addfriendsbutton
 {
-        background-color: #FF00FF;
+        background-color: #B80000  ;
         color: #fff;
         font-weight: bold;
-        font-size: 18px;
+        font-size: 20px;
         text-decoration: none;
         text-align: center;
-        margin-left: 3.5em;
+        margin-left: 2.5em;
         margin-top: 0.5em;
+       
     
 }
 #switchsettings
 {
         
         margin-left: 0.5em;
-        margin-top: 4.00em;
+        margin-top: 1.00em;
     
 }
+#locationswitchspan
+{
+        font-weight: bold;
+        font-size: 18px;
+        text-decoration: none;        
+        margin-left: 0.5em;        
+        margin-top: 0.5em;  
+       
+        
+    
+}
+#modeswitchspan
+{
+        font-weight: bold;
+        font-size: 18px;
+        text-decoration: none;        
+        margin-left: 0.5em;        
+        margin-top: 4.5em;  
+      
+}
 
+
+#friendviewlist 
+{
+     margin-top: 1.5em;
+     height : 100px;
+}
 
 #homeview .km-content{
     
@@ -44,6 +68,10 @@
 	background-repeat: repeat;
     color : black;
 	
+}
+.m
+{
+     margin-left: 3.5em;
 }
 #settingsview .km-content{
     
@@ -82,7 +110,7 @@
         margin-right : auto;
         margin-top : 50px;
     
-        background-color: #FF00FF;
+        background-color: #B80000  ;
         color: #fff;
         font-weight: bold;
         font-size: 80px;

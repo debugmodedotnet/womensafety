@@ -24,11 +24,12 @@
         </div>
 
         <!-- Settings View -->
-        <div data-role="view" id="settingsview" data-title="Settings" data-show="showfriends" >            
-            <input id="numberinputbox" type="tel" /> 
+        <div data-role="view" id="settingsview" data-title="Settings" data-show="showfriends" >     
+              <input id="numberinputbox" type="tel" /> 
             <div >               
                 <a id="addfriendsbutton" data-role="button" data-click="addnumbers" data-icon="add">Add Friend</a>
             </div>
+           
             <ul id="friendlist"										
 					data-endlessScroll="true"
 					data-role="listview"  
@@ -36,17 +37,11 @@
                     data-click="deletefriend"
 					>
 			</ul>
+           
             <div id="switchsettings" >
-                            <span>
-                                Track My Location<br/>                            
-                               <input type="checkkbox" data-role="switch" id="tracklocationswitch" />
-                           </span>
-                           <br/>
-                           <span>
-                           Test/Evaluation Mode <br/>
-                           <input type="checkkbox" data-role="switch" id="modeswitch" />
-                           </span>
+                            
             </div>
+           
         </div>
         
         
@@ -84,7 +79,35 @@
             <header data-role="header">
                 <div data-role="navbar">
                     <span data-role="view-title"></span>
+                    <a data-role="backbutton" data-align="left">Back</a>
+                    <a  id="saveButton" data-role="button" data-align="right" data-icon="settings" data-rel="modalview" href="#modalview-setting"  ></a>
+                    
                 </div>
+                
+                 <!--Setting Model View -->
+				<div data-role="modalview" id="modalview-setting" style="width: 95%; height: 270px;">
+					
+                    <div data-role="header">
+						<div data-role="navbar">
+							<span>Settings</span>
+							<a data-click="closeModalViewLogin" data-role="button"  data-icon="close" data-align="right">Cancel</a>
+						</div>
+					</div>
+
+                    <div>
+                        <ul data-role="listview" data-style="inset">
+                            <li>Track Location                                 
+                               <input type="checkkbox" data-role="switch" id="tracklocationswitch" /> 
+                                
+                            </li>
+                            <li>
+                             Evaluation Mode                           
+                           <input type="checkkbox" data-role="switch" id="modeswitch" />
+                            </li>
+                        </ul>
+                    </div>                    
+				</div>
+
             </header>
 
             <div data-role="footer">
@@ -92,7 +115,7 @@
                     <a href="#homeview" data-icon="home">Home</a>                     
                     <a href="#reportview" data-icon="share">Report</a> 
                     <a href="#resourceview" data-icon="organize">Resources</a> 
-                     <a href="#settingsview" data-icon="settings">Settings</a> 
+                     <a href="#settingsview" data-icon="add">Settings</a> 
                 </div>
             </div>
         </div>
