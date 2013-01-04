@@ -149,11 +149,12 @@ function showfriends(e)
 
 function deletefriend(e)
 {
-    console.log("hi");
-    console.log(($(e.item).index()));
+   // console.log("hi");
+    //console.log(($(e.item).index()));
+    var index = $(e.item).index();
    var friendscontact1 = JSON.parse(localStorage["friendscontactstorage"]);
      //friendscontact.push({friend:numberstoadd});
-    removeByIndex(friendscontact1,1);
+    removeByIndex(friendscontact1,index);
     localStorage["friendscontactstorage"]= JSON.stringify(friendscontact1);
     showfriends();
     
