@@ -63,6 +63,26 @@ function onGeolocationError(error) {
 function sendmessages(e)
 {
     
+   var messagetosend ;
+    
+     if (localStorage.messagestorage)
+    {
+       
+       
+         messagetosend =localStorage["messagestorage"];
+         
+       
+    }
+    
+    else
+    {
+        
+        messagetosend = " Hey Dear , Please help me . I am in danger ";
+        
+    }
+    
+    
+    
     var  friendsfronlocalstoragetosendmessage=[];
     var numberstosend ="";
     if (localStorage.friendscontactstorage)
@@ -74,11 +94,13 @@ function sendmessages(e)
                         numberstosend = friendsfronlocalstoragetosendmessage[i].friend + "," + numberstosend ;
                 }
          
-         window.location.href = "sms:" + numberstosend + "?body=" + "hello test message" + currentlocation;
+            
+            
+         window.location.href = "sms:" + numberstosend + "?body=" + messagetosend + "    I am at   "  + currentlocation;
         }
     else
     {
-        window.location.href = "sms:" + numberstosend + "?body=" + "Help me I am stuck at " + currentlocation;
+        window.location.href = "sms:" + numberstosend + "?body=" + messagetosend+ " I am at   " + currentlocation;
     }
     
     
