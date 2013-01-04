@@ -24,12 +24,25 @@
         </div>
 
         <!-- Settings View -->
-        <div data-role="view" id="settingsview" data-title="Settings" data-show="showfriends" >     
-              <input id="numberinputbox" type="tel" /> 
-            <div >               
-                <a id="addfriendsbutton" data-role="button" data-click="addnumbers" data-icon="add">Add Friend</a>
+        <div data-role="view" id="friendsview" data-title="Friends" data-show="showfriends" >  
+            
+            
+
+			<ul id="buttongroup" data-role="buttongroup">
+                
+				<li>Add Friend</li>
+				<li>Choose Friend</li>
+                
+			</ul>
+
+
+            <div id="addnumbersdiv">    
+                    <input id="numberinputbox" type="tel" />
+                    <a id="addfriendsbutton" data-role="button" data-click="addnumbers" data-icon="add"> </a>
             </div>
            
+            <div id="friendlistdiv" >
+                <h3>Your Friends</h3>
             <ul id="friendlist"										
 					data-endlessScroll="true"
 					data-role="listview"  
@@ -38,8 +51,6 @@
 					>
 			</ul>
            
-            <div id="switchsettings" >
-                            
             </div>
            
         </div>
@@ -115,7 +126,7 @@
                     <a href="#homeview" data-icon="home">Home</a>                     
                     <a href="#reportview" data-icon="share">Report</a> 
                     <a href="#resourceview" data-icon="organize">Resources</a> 
-                     <a href="#settingsview" data-icon="add">Settings</a> 
+                     <a href="#friendsview" data-icon="add">Friends</a> 
                 </div>
             </div>
         </div>

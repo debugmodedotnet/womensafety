@@ -107,6 +107,7 @@ function addnumbers(e)
     
     
     localStorage["friendscontactstorage"]= JSON.stringify(friendscontact);
+    document.getElementById('numberinputbox').value = "";
     
     showfriends();
     
