@@ -15,7 +15,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 // PhoneGap is ready
 function onDeviceReady() {
     getLocation();
-   
+    //alert("You are running application in Test Mode.To change the mode go to settings. In Test mode we send message as \"Hey I am Testing this App \"");
     
 }
 
@@ -167,6 +167,28 @@ function removeByIndex(arr, index) {
     arr.splice(index, 1);
 }
 
-function closeModalViewLogin() {
-        $("#modalview-setting").kendoMobileModalView("close");
+ 
+function savemessage()
+{
+     var messagetosend = document.getElementById('messagetext').value;    
+   
+        
+    localStorage["messagestorage"]= messagetosend;
+    
+  
+    
+    
+}
+
+function initsetting()
+{
+     if (localStorage.messagestorage)
+    {
+       
+       
+         document.getElementById('messagetext').value =localStorage["messagestorage"];
+       
     }
+}
+
+

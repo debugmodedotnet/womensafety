@@ -84,6 +84,33 @@
            
         </div>
         
+          <!-- Settings View View -->
+        	<div data-role="view" id="settingsview" data-show="initsetting">					
+                    
+                        <ul data-role="listview" data-style="inset">
+                            <li>
+                                Message
+                              <textarea rows="1" id="messagetext" > </textarea>
+                            </li>
+                            <li>
+                                <div>
+                                <a id="savemessage" data-role="button" data-click="savemessage" data-icon="add">Save</a>
+                                </div>
+                            </li>
+                            <li>Track Location                                 
+                               <input type="checkkbox" data-role="switch" id="tracklocationswitch" checked /> 
+                                
+                            </li>
+                            <li>
+                             Evaluation Mode                           
+                           <input type="checkkbox" data-role="switch" id="modeswitch" />
+                            </li>
+                            
+                        </ul>
+                    </div>                    
+				
+
+        
         <!--Layout of the Application -->
         
         <div data-role="layout" data-id="mobile-tabstrip">
@@ -91,34 +118,12 @@
                 <div data-role="navbar">
                     <span data-role="view-title"></span>
                     <a data-role="backbutton" data-align="left">Back</a>
-                    <a  id="saveButton" data-role="button" data-align="right" data-icon="settings" data-rel="modalview" href="#modalview-setting"  ></a>
+                    <a  data-role="button" data-align="right" data-icon="settings" href="#settingsview"  ></a>
                     
                 </div>
                 
                  <!--Setting Model View -->
-				<div data-role="modalview" id="modalview-setting" style="width: 95%; height: 270px;">
-					
-                    <div data-role="header">
-						<div data-role="navbar">
-							<span>Settings</span>
-							<a data-click="closeModalViewLogin" data-role="button"  data-icon="close" data-align="right">Cancel</a>
-						</div>
-					</div>
-
-                    <div>
-                        <ul data-role="listview" data-style="inset">
-                            <li>Track Location                                 
-                               <input type="checkkbox" data-role="switch" id="tracklocationswitch" /> 
-                                
-                            </li>
-                            <li>
-                             Evaluation Mode                           
-                           <input type="checkkbox" data-role="switch" id="modeswitch" />
-                            </li>
-                        </ul>
-                    </div>                    
-				</div>
-
+			
             </header>
 
             <div data-role="footer">
