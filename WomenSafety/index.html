@@ -31,7 +31,9 @@
             </div>
             <ul id="friendlist"										
 					data-endlessScroll="true"
-					data-role="listview"                    
+					data-role="listview"  
+                    data-style="inset"
+                    data-click="deletefriend"
 					>
 			</ul>
             <div id="switchsettings" >
@@ -52,10 +54,13 @@
           <!-- Template to display Friends Numbers -->
         
         <script type= "text/x-kendo-template" id="friendstemplate">
-            <div>			
-            #= friend #
-            <a data-role="button" data-icon="trash" />
-          </div>    
+          		
+            <span>
+            #= friend # 
+           <a data-role="detailbutton"  data-style="rowdelete" ></a>
+           </span>
+            
+            
 		</script>
         
         

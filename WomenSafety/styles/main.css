@@ -78,7 +78,7 @@
         width: 250px;
         height : 250px;
         padding: 42px 15px;
-        margin-left : 30px;;
+        margin-left : 20px;;
         margin-right : auto;
         margin-top : 50px;
     
@@ -123,18 +123,5 @@
 
 }
 
-    width: 0px;
-    height: 0px;
-    margin-left: 50%;
-    margin-top: 50%;
-    left: -28px;
-    top: -53px;
-    position: absolute;
-    border-top: 50px solid transparent;
-    border-bottom: 50px solid transparent;
-    border-left: 80px solid #0a7da7;
-    z-index: 1;
-    -webkit-transition: all .3s;
-    -moz-transition: all .3s;
-    transition: all .3s;
-}
+
+

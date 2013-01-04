@@ -108,7 +108,8 @@ function addnumbers(e)
     
     localStorage["friendscontactstorage"]= JSON.stringify(friendscontact);
     
-  
+    showfriends();
+    
    
     
 }
@@ -144,4 +145,21 @@ function showfriends(e)
 	
    
     
+}
+
+function deletefriend(e)
+{
+    console.log("hi");
+    console.log(($(e.item).index()));
+   var friendscontact1 = JSON.parse(localStorage["friendscontactstorage"]);
+     //friendscontact.push({friend:numberstoadd});
+    removeByIndex(friendscontact1,1);
+    localStorage["friendscontactstorage"]= JSON.stringify(friendscontact1);
+    showfriends();
+    
+    
+    
+}
+function removeByIndex(arr, index) {
+    arr.splice(index, 1);
 }
