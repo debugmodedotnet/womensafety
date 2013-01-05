@@ -214,3 +214,33 @@ function initsetting()
 }
 
 
+function savereport()
+{
+    
+    var reports = [];
+    var locationofincident = document.getElementById("locationbox").value;
+    var timeofincident = document.getElementById("timebox").value;
+    var commentonincident  = document.getElementById("commenttext").value;
+    var typeofincident = $("#typeofreport option:selected").text();
+    console.log(typeofincident);
+    if (localStorage.reportstorage)
+    {
+       
+        reports = JSON.parse(localStorage["reportstorage"]);
+        reports.push({location:locationofincident,time:timeofincident,comment:commentonincident,type:typeofincident});
+       
+    }
+    else
+    {
+        reports.push({location:locationofincident,time:timeofincident,comment:commentonincident,type:typeofincident});
+        
+    }
+    
+    
+    
+    localStorage["reportstorage"]= JSON.stringify(reports);
+    document.getElementById('numberinputbox').value = "";
+  
+    
+}
+

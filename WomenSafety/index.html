@@ -73,15 +73,50 @@
           <!-- Resource  View -->
         <div data-role="view" id="resourceview" data-title="Resource">
            
-           Resource coming soon 
-           
+       
         </div>
         
           <!-- Report View -->
         <div data-role="view" id="reportview" data-title="Report">
           
-           Report coming soon 
-           
+			<ul data-role="listview" data-style="inset">
+
+				<li>
+					Current time
+					<input id="timebox" type="text"/>
+				</li>
+				<li>
+					Location
+					<input id="locationbox" type="text"/>
+				</li>
+				<li>
+					Type of Report
+					<select id="typeofreport">
+						<option value="Rape">Rape</option>
+						<option value="EveTeasing">Eve Teasing</option>
+						<option value="Molestation">Molestation</option>
+						<option value="VerbalAbuse">Verbal Abuse</option>
+						<option value="Harassmentatwork">Harassment at work</option>
+
+					</select>
+				</li>
+				<li>
+					Comment <textarea rows="3" id="commenttext" > </textarea>
+				</li>
+				<li>
+					<div>
+						<a id="takephoto" data-role="button" data-click="takephoto" data-icon="camera">Attach Photo</a>
+					</div>
+				</li>
+				<li>
+					<div>
+						<a id="savereport" data-role="button" data-click="savereport" data-icon="save">Save Report</a>
+						<a id="sendreport" data-role="button" data-click="sendreport" data-icon="sync">Sync Report</a>
+					</div>
+				</li>
+
+			</ul>
+		
         </div>
         
           <!-- Settings View View -->
@@ -90,7 +125,7 @@
                         <ul data-role="listview" data-style="inset">
                             <li>
                                 Message
-                              <textarea rows="1" id="messagetext" > </textarea>
+                              <textarea rows="3" id="messagetext" > </textarea>
                             </li>
                             <li>
                                 <div>
