@@ -66,9 +66,12 @@ function onGeolocationError(error) {
 
 function initreport(e)
 {
+   // console.log(datetime);
+    //console.log("hi");
+   // document.getElementById("timebox").value= datetime;
     console.log(datetime);
-    console.log("hi");
-    document.getElementById("timebox").value= datetime;
+    $('#timebox').text(datetime); 
+     $('#locationbox').text(currentlocation);
     
 }
 function sendmessages(e)
@@ -229,8 +232,8 @@ function savereport()
 {
     
     var reports = [];
-    var locationofincident = document.getElementById("locationbox").value;
-    var timeofincident = document.getElementById("timebox").value;
+    var locationofincident =  $('#locationbox').text();
+    var timeofincident =  $('#timebox').text();
     var commentonincident  = document.getElementById("commenttext").value;
     var typeofincident = $("#typeofreport option:selected").text();
     console.log(typeofincident);
@@ -250,8 +253,10 @@ function savereport()
     
     
     localStorage["reportstorage"]= JSON.stringify(reports);
-    document.getElementById('numberinputbox').value = "";
-  
+     $('#timebox').text("");
+     $('#locationbox').text("");
+    document.getElementById("timebox").value ="";
+   document.getElementById("commenttext").value ="";
     
 }
 

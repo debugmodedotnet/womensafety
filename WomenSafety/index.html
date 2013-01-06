@@ -116,18 +116,18 @@
         <!-- Report View -->
         <div data-role="view" id="reportview" data-title="Report" data-show="initreport">
           
-			<ul data-role="listview" data-style="inset">
+			<ul data-role="listview">
 
 				<li>
-					Current time
-					<input id="timebox" type="text"/>
+					Date/Time           
+					<label  id="timebox"> </label>
 				</li>
 				<li>
-					Location
-					<input id="locationbox" type="text"/>
+					Location                 
+					<label id="locationbox"> </label>
 				</li>
 				<li>
-					Type of Report
+					Type of Report            
 					<select id="typeofreport">
 						<option value="Rape">Rape</option>
 						<option value="EveTeasing">Eve Teasing</option>
@@ -138,7 +138,9 @@
 					</select>
 				</li>
 				<li>
-					Comment <textarea rows="3" id="commenttext" > </textarea>
+					Comment
+                 <textarea rows="3" column="70" id="commenttext" >
+                 </textarea>
 				</li>
 				<li>
 					<div>
@@ -148,7 +150,9 @@
 				<li>
 					<div>
 						<a id="savereport" data-role="button" data-click="savereport" data-icon="organize">Save</a>
+                        <a id="showreport" data-role="button" data-click="showreport" data-icon="share">Show</a>
 						<a id="sendreport" data-role="button" data-click="sendreport" data-icon="share">Sync</a>
+                        
 					</div>
 				</li>
 
