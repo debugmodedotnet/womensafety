@@ -181,6 +181,18 @@
     float: left;
     margin-right: 10px;
 }
+.listTime
+{
+	font-size: .8em;
+	font-weight: 100;
+    color : red;
+}
+.details-link {
+    margin-top: -1.2em;
+    position: absolute;
+    right: 0.6em;
+    top: 50%;
+}
 
 
 

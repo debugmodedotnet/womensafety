@@ -58,6 +58,7 @@
   <ItemGroup>
     <Content Include="appimages\bg.jpg" />
     <Content Include="appimages\bg1.png" />
+    <Content Include="appimages\emergency.png" />
     <Content Include="appimages\emergencyimg.png" />
     <Content Include="appimages\hospital.jpg" />
     <Content Include="appimages\indianpolice.jpg" />

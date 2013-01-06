@@ -272,6 +272,8 @@ var policestationssetailsdelhi = [
 
 
 ];
+
+var policestationssetailsdelhidatasource = new kendo.data.DataSource.create({data: policestationssetailsdelhi, group: "group"});
 var resources = [
 
                                     {name :"Police Stations", resimage:"appimages\indianpolice.jpg"},
@@ -280,3 +282,11 @@ var resources = [
                                     {name :"Emergency Numbers", resimage:"appimages\emergtencyimg.png"},
 
 ];
+
+function  callthepolice(e)
+{
+   
+    
+    var phonenumbertocall = e.dataItem.phonenumber;    
+    window.location.href='tel:'+phonenumbertocall;
+}

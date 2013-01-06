@@ -54,8 +54,7 @@
             </div>
            
         </div>
-        
-               
+                       
           <!-- Template to display Friends Numbers -->
         
         <script type= "text/x-kendo-template" id="friendstemplate">
@@ -76,31 +75,45 @@
 					data-endlessScroll="true"
 					data-role="listview"
 					data-style="inset">                    
-                    <li><a href="#homeview" class="km-listview-link" data-role="listview-link"><img class="pullImage" src="\appimages\indianpolice.jpg"/>Police Stations</a></li>
-                    <li><a href="#homeview" class="km-listview-link" data-role="listview-link"><img class="pullImage" src="\appimages\hospital.jpg"/>Hospitals</a></li>
-                     <li><a href="#homeview" class="km-listview-link" data-role="listview-link"><img class="pullImage" src="\appimages\emergencyimg.png"/>Emergency Number</a></li>
-                    <li><a href="#homeview" class="km-listview-link" data-role="listview-link"><img class="pullImage" src="\appimages\ngoimage.png"/>NGO</a></li>
+                    <li><a href="#policestationview" class="km-listview-link" data-role="listview-link"><img class="pullImage" src="appimages\indianpolice.jpg"/>Police Stations</a></li>
+                    <li><a href="#homeview" class="km-listview-link" data-role="listview-link"><img class="pullImage" src="appimages\hospital.jpg"/>Hospitals</a></li>
+                     <li><a href="#homeview" class="km-listview-link" data-role="listview-link"><img class="pullImage" src="appimages\emergency.png"/>Emergency Number</a></li>
+                    <li><a href="#homeview" class="km-listview-link" data-role="listview-link"><img class="pullImage" src="appimages\ngoimage.png"/>NGO</a></li>
                    
 				</ul>
 			</div>
        
         </div>
         
-         <!-- Template to display resources -->
+         <!-- Police Staions View -->
+        <div data-role="view" id="policestationview">
+            <ul data-role="listview" 
+                id="policestationlistview" 
+                data-style="inset"
+                selectable="true"
+                data-source="policestationssetailsdelhidatasource"
+                data-template="policestationtemplate"
+                data-click="callthepolice">
+                                
+            </ul>
+            
+             <!-- Template to display Police Stations Numbers -->
         
-        <script type= "text/x-kendo-template" id="resourceTemplate">
-            <div>
-			<a href="\#speakerDetails?sid=#=SpeakerID#" class="km-listview-link" data-role="listview-link">
-            <img class="pullImage" src=#=SpeakerPhoto# alt="#= SpeakerName #" />
-            #= SpeakerName #</br>
-            <span class="listTime">
-            #=SpeakerTitle#
-            </span>
-            </a>        
-            </div>    
+        <script type= "text/x-kendo-template" id="policestationtemplate">
+         <div>		
+           <a data-role="listview-link" data-style="trash">
+           #=name # <br/>
+          <span class="listTime">#= phonenumber#</span></a>
+          <a data-role="button" class="details-link" data-icon="action">Call</a>
+          </div>          
 		</script>
         
-          <!-- Report View -->
+        
+        </div>
+        
+        
+        
+        <!-- Report View -->
         <div data-role="view" id="reportview" data-title="Report" data-show="initreport">
           
 			<ul data-role="listview" data-style="inset">
@@ -144,7 +157,7 @@
         </div>
         
           <!-- Settings View View -->
-        	<div data-role="view" id="settingsview" data-show="initsetting">					
+        <div data-role="view" id="settingsview" data-show="initsetting">					
                     
                         <ul data-role="listview" data-style="inset">
                             <li>
@@ -167,9 +180,7 @@
                             
                         </ul>
                     </div>                    
-				
-
-        
+		
         <!--Layout of the Application -->
         
         <div data-role="layout" data-id="mobile-tabstrip">
