@@ -5,6 +5,7 @@ var friendsfronlocalstorage ;
 var currentlong = "";
 var currentlat = "";
 var currentlocation = "";
+var datetime ="";
 
 // Wait for PhoneGap to load
 document.addEventListener("deviceready", onDeviceReady, false);
@@ -16,23 +17,26 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     getLocation();
     //alert("You are running application in Test Mode.To change the mode go to settings. In Test mode we send message as \"Hey I am Testing this App \"");
+    getCurrentDateandTime();
+}
+
+function getCurrentDateandTime()
+{
     
+    var currentdate = new Date(); 
+   datetime =  currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getFullYear() + " @ "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
+    console.log(datetime);
 }
 
 function getLocation() {
     navigator.geolocation.getCurrentPosition(onGeolocationSuccess, onGeolocationError);
 }
 
-//=======================Say Hello (Page 1) Operations=======================//
-function sayHello() {
-    var sayHelloInputElem = document.getElementById('helloWorldInput');
-    var sayHelloTextElem = document.getElementById('helloWorldText');
-    var inputText = document.getElementById('txtName');
-
-    sayHelloTextElem.innerHTML = 'Hello, ' + inputText.value + '!';
-    sayHelloTextElem.style.display = 'block';
-    sayHelloInputElem.style.display = 'none';
-}
 
 
 //=======================Geolocation Operations=======================//
@@ -60,6 +64,13 @@ function onGeolocationError(error) {
 }
 
 
+function initreport(e)
+{
+    console.log(datetime);
+    console.log("hi");
+    document.getElementById("timebox").value= datetime;
+    
+}
 function sendmessages(e)
 {
     
@@ -244,3 +255,28 @@ function savereport()
     
 }
 
+var policestationssetailsdelhi = [
+
+                                    {name :"Darya Ganj", phonenumber:" 01123274683", group :"CENTRAL"},
+                                    {name :"Kamla Mkt", phonenumber:"01123233743", group :"CENTRAL"  },
+                                    {name :"I.P. Estate", phonenumber:"01123318474", group :"CENTRAL"  },
+                                    {name :"Karol Bagh", phonenumber:"01125786639", group :"CENTRAL"  },
+                                    {name :"Rajinder Nagar", phonenumber:"01125735012", group :"CENTRAL"  },
+                                    {name :"Chandni Mahal", phonenumber:"01123271751", group :"CENTRAL"  },
+                                    {name :"Hauz Qazi", phonenumber:" 01123522482", group :"CENTRAL"  },
+                                    {name :"Nabi Karim", phonenumber:"01123221081", group :"CENTRAL"  },
+                                    {name :"Prasad Nagar", phonenumber:"01125725652", group :"CENTRAL"  },
+                                    {name :"Kalyanpuri", phonenumber:"01122472251", group :"EAST"  },
+                                    {name :"Trilokpuri", phonenumber:"01122253317", group :"EAST"  },
+                                    
+
+
+];
+var resources = [
+
+                                    {name :"Police Stations", resimage:"appimages\indianpolice.jpg"},
+                                    {name :"Hospitals", resimage:"appimages\hospital.jpg"},
+                                    {name :"NGO", resimage:"appimages\ngoimage.pnf"},
+                                    {name :"Emergency Numbers", resimage:"appimages\emergtencyimg.png"},
+
+];

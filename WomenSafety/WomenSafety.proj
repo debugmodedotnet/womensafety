@@ -58,6 +58,10 @@
   <ItemGroup>
     <Content Include="appimages\bg.jpg" />
     <Content Include="appimages\bg1.png" />
+    <Content Include="appimages\emergencyimg.png" />
+    <Content Include="appimages\hospital.jpg" />
+    <Content Include="appimages\indianpolice.jpg" />
+    <Content Include="appimages\ngoimage.png" />
     <Content Include="index.html" />
     <Content Include="kendo\js\jquery.min.js" />
     <Content Include="kendo\js\kendo.mobile.min.js" />

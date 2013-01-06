@@ -23,7 +23,7 @@
            
         </div>
 
-        <!-- Settings View -->
+        <!-- Friends View -->
         <div data-role="view" id="friendsview" data-title="Friends" data-show="showfriends" >  
             
             
@@ -55,8 +55,7 @@
            
         </div>
         
-        
-        
+               
           <!-- Template to display Friends Numbers -->
         
         <script type= "text/x-kendo-template" id="friendstemplate">
@@ -72,12 +71,37 @@
         
           <!-- Resource  View -->
         <div data-role="view" id="resourceview" data-title="Resource">
-           
+           <div>
+				<ul id="resourcelist"					
+					data-endlessScroll="true"
+					data-role="listview"
+					data-style="inset">                    
+                    <li><a href="#homeview" class="km-listview-link" data-role="listview-link"><img class="pullImage" src="\appimages\indianpolice.jpg"/>Police Stations</a></li>
+                    <li><a href="#homeview" class="km-listview-link" data-role="listview-link"><img class="pullImage" src="\appimages\hospital.jpg"/>Hospitals</a></li>
+                     <li><a href="#homeview" class="km-listview-link" data-role="listview-link"><img class="pullImage" src="\appimages\emergencyimg.png"/>Emergency Number</a></li>
+                    <li><a href="#homeview" class="km-listview-link" data-role="listview-link"><img class="pullImage" src="\appimages\ngoimage.png"/>NGO</a></li>
+                   
+				</ul>
+			</div>
        
         </div>
         
+         <!-- Template to display resources -->
+        
+        <script type= "text/x-kendo-template" id="resourceTemplate">
+            <div>
+			<a href="\#speakerDetails?sid=#=SpeakerID#" class="km-listview-link" data-role="listview-link">
+            <img class="pullImage" src=#=SpeakerPhoto# alt="#= SpeakerName #" />
+            #= SpeakerName #</br>
+            <span class="listTime">
+            #=SpeakerTitle#
+            </span>
+            </a>        
+            </div>    
+		</script>
+        
           <!-- Report View -->
-        <div data-role="view" id="reportview" data-title="Report">
+        <div data-role="view" id="reportview" data-title="Report" data-show="initreport">
           
 			<ul data-role="listview" data-style="inset">
 
@@ -110,8 +134,8 @@
 				</li>
 				<li>
 					<div>
-						<a id="savereport" data-role="button" data-click="savereport" data-icon="organize">Save Report</a>
-						<a id="sendreport" data-role="button" data-click="sendreport" data-icon="share">Sync Report</a>
+						<a id="savereport" data-role="button" data-click="savereport" data-icon="organize">Save</a>
+						<a id="sendreport" data-role="button" data-click="sendreport" data-icon="share">Sync</a>
 					</div>
 				</li>
 
