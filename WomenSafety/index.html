@@ -154,7 +154,7 @@
 					<div>
 						<a id="savereport" data-role="button" data-click="savereport" data-icon="organize">Save</a>
                         <a id="submitreport" data-role="button" data-click="submitreport" data-icon="action">Submit</a>
-                        <a id="showreport" data-role="button" data-click="showreport" data-icon="share">Show</a>
+                        <a id="showreport" data-role="button" data-click="showsavedreport" data-icon="share">Show</a>
 						<a id="sendreport" data-role="button" data-click="sendreport" data-icon="share">Sync</a>
                         
 					</div>
@@ -163,6 +163,26 @@
 			</ul>
 		
         </div>
+        
+         <!-- Saved Report Show  View -->
+        
+        <div id="savedreportshowview" data-role="view" data-tile="Saved Reports" >
+           <ul data-role="listview" 
+               id="savedreportlistview"
+               >
+           </ul> 
+            
+        </div>
+        
+        <!-- Saved Report Show  Template -->
+         <script type= "text/x-kendo-template" id="savedreporttemplate">
+         <div>		
+           <a data-role="listview-link">
+           #=location# #=comment# <br/>
+          <span class="listTime">#= time#</span></a>
+          <a data-role="button" class="details-link" data-icon="action">Sync</a>
+          </div>          
+		</script>
         
           <!-- Settings View View -->
         <div data-role="view" id="settingsview" data-show="initsetting">					

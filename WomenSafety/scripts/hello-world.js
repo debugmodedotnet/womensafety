@@ -285,9 +285,29 @@ function initreport(e)
     }
     
 }
-function showreport(e)
+function showsavedreport(e)
 {
     console.log("show report");
+     if (localStorage.reportstorage)
+    {
+       
+        
+        
+        reportscount = JSON.parse(localStorage["reportstorage"]);
+        
+        var reportsdata = new kendo.data.DataSource.create({data: reportscount});
+		var template1 = kendo.template($("#savedreporttemplate").text());
+		$("#savedreportlistview").kendoMobileListView({
+			dataSource: reportsdata,
+			template:template1,
+			style:"inset",
+			endlessScroll: true
+   
+		});
+        
+       app.navigate("#savedreportshowview");
+    }
+    
 }
 
 
