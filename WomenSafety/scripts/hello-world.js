@@ -110,7 +110,14 @@ function sendmessages(e)
          
             
             
-         window.location.href = "sms:" + numberstosend + "?body=" + messagetosend + "    I am at   "  + currentlocation;
+       //  window.location.href = "sms:" + numberstosend + "?body=" + messagetosend + "    I am at   "  + currentlocation;
+            window.plugins.sms.send(numberstosend,messagetosend,function
+            () { 
+       alert('Message sent successfully');  
+    },
+    function (e) {
+        alert('Message Failed:' + e);
+    });
         }
     else
     {
