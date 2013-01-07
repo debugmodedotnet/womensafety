@@ -64,16 +64,7 @@ function onGeolocationError(error) {
 }
 
 
-function initreport(e)
-{
-   // console.log(datetime);
-    //console.log("hi");
-   // document.getElementById("timebox").value= datetime;
-    console.log(datetime);
-    $('#timebox').text(datetime); 
-     $('#locationbox').text(currentlocation);
-    
-}
+
 function sendmessages(e)
 {
     
@@ -266,6 +257,37 @@ function savereport()
     document.getElementById("timebox").value ="";
    document.getElementById("commenttext").value ="";
     
+}
+
+function initreport(e)
+{
+   $('#showreport').attr("disabled","");
+    var reportscount=[];
+    $('#timebox').text(datetime); 
+    $('#locationbox').text(currentlocation);
+     if (localStorage.reportstorage)
+    {
+       
+        reportscount = JSON.parse(localStorage["reportstorage"]);
+        
+       
+    }
+    if(reportscount.length>0)
+    {
+        console.log(reportscount.length);
+        $('#showreport').show();
+        $('#showreport').text("Show " + reportscount.length + "  Pending Reports");
+    }
+    else
+    {
+        console.log("No Reports saved");
+        $('#showreport').hide();
+    }
+    
+}
+function showreport(e)
+{
+    console.log("show report");
 }
 
 
