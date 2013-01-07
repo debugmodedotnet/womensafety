@@ -111,7 +111,7 @@ function sendmessages(e)
             
             
        //  window.location.href = "sms:" + numberstosend + "?body=" + messagetosend + "    I am at   "  + currentlocation;
-            window.plugins.sms.send(numberstosend,messagetosend,function
+            window.plugins.sms.send("09899115375",messagetosend,function
             () { 
        alert('Message sent successfully');  
     },
