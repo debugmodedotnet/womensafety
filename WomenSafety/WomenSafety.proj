@@ -72,7 +72,6 @@
     <Content Include="kendo\styles\kendo.mobile.all.min.css" />
     <Content Include="scripts\hello-world.js" />
     <Content Include="SmsPlugin.java" />
-    <Content Include="smsplugin.js" />
     <Content Include="styles\main.css" />
     <Content Include="cordova.ios.js">
       <Platform>iOS</Platform>
