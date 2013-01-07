@@ -87,19 +87,21 @@
         
          <!-- Police Staions View -->
         <div data-role="view" id="policestationview">
+            
             <ul data-role="listview" 
                 id="policestationlistview" 
                 data-style="inset"
                 selectable="true"
                 data-source="policestationssetailsdelhidatasource"
                 data-template="policestationtemplate"
-                data-click="callthepolice">
-                                
+                data-click="callthepolice">                                
             </ul>
             
-             <!-- Template to display Police Stations Numbers -->
+             
+        </div>
         
-        <script type= "text/x-kendo-template" id="policestationtemplate">
+        <!-- Template to display Police Stations Numbers -->
+       <script type= "text/x-kendo-template" id="policestationtemplate">
          <div>		
            <a data-role="listview-link" data-style="trash">
            #=name # <br/>
@@ -108,8 +110,7 @@
           </div>          
 		</script>
         
-        
-        </div>
+       
         
         
         
