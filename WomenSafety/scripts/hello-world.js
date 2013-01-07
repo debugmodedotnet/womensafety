@@ -310,6 +310,17 @@ function showsavedreport(e)
     
 }
 
+function GetPoliceStationSearchedResultView()
+{
+    $("#modal-search").kendoMobileModalView("close");
+    app.navigate("#policestationview");
+}
+
+function closeModalViewGroup() {
+	
+	$("#modal-search").kendoMobileModalView("close");
+}
+
 
 //Reference http://www.jasolavihar.com/emergency-phone-numbers/delhi-ncr-important-police-station-phone-numbers.html 
 var policestationssetailsdelhi = [

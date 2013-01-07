@@ -30,7 +30,7 @@
             
             
 
-			<ul id="buttongroup" data-role="buttongroup">
+			<ul id="buttongroup" data-role="buttongroup" data-index="0">
                 
 				<li data-icon="add">Add Friend</li>
 				<li data-icon="contacts">Choose Friend</li>
@@ -88,7 +88,7 @@
         </div>
         
          <!-- Police Staions View -->
-        <div data-role="view" id="policestationview">
+        <div data-role="view" id="policestationview" data-layout="mobile-tabstrip-search">
             
             <ul data-role="listview" 
                 id="policestationlistview" 
@@ -233,6 +233,43 @@
             </div>
         </div>
    
+        <!--Layout of the Application in Phone Number Search -->
+        
+        <div data-role="layout" data-id="mobile-tabstrip-search">
+            <header data-role="header">
+                <div data-role="navbar">
+                    <span data-role="view-title"></span>
+                    <a data-role="backbutton" data-align="left">Back</a>
+                    <a  data-role="button" data-align="right" data-icon="search" href="#modal-search" data-rel="modalview"  ></a>
+                    
+                </div>
+                
+                 <!--Setting Model View -->
+                
+				<div data-role="modalview" id="modal-search" style="width: 260px; height: 260px;">
+					<div data-role="navbar">
+						<span>Search</span>
+						<a data-click="closeModalViewGroup" data-role="button" data-align="right">Close</a>
+					</div>			
+					<input type="text" id="txtsearch" value="" />
+					<div  style="display:block;"></div>
+					<a id="searchsubmitButton" data-role="button" data-click="GetPoliceStationSearchedResultView" data-icon="search">Search</a>
+					<div  style="display:block;"></div>
+					<div  style="display:block;"></div>
+					<span id="errorsearchdiv"></span>
+				</div>
+			
+            </header>
+
+            <div data-role="footer">
+                <div data-role="tabstrip">
+                    <a href="#homeview" data-icon="home">Home</a>                     
+                    <a href="#reportview" data-icon="share">Report</a> 
+                    <a href="#resourceview" data-icon="organize">Resources</a> 
+                     <a href="#friendsview" data-icon="add">Friends</a> 
+                </div>
+            </div>
+        </div>
         <script>
             var app = new kendo.mobile.Application(document.body, { transition: "slide", layout: "mobile-tabstrip" });
         </script>
