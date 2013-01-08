@@ -253,13 +253,14 @@ function savesetting()
     var  safemessagetosend =  document.getElementById('safemessagetext').value;   
     var  nameofuser =  document.getElementById('nametxt').value;
     var  phonenumberofuser =  document.getElementById('phonenumbertxt').value;
+    var  emailofuser =  document.getElementById('emailtxt').value;
     
         
     localStorage["DangerMessage"]= dangermessagetosend;
     localStorage["SafeMessage"]= safemessagetosend;
     localStorage["NameOfUser"]= nameofuser;
     localStorage["PhoneNumberOfUser"]= phonenumberofuser;
-    
+    localStorage["EmailOfUser"]= emailofuser;
   
     
     
@@ -283,8 +284,11 @@ function initsetting()
      if(localStorage.PhoneNumberOfUser)
     {
          document.getElementById('phonenumbertxt').value =localStorage["PhoneNumberOfUser"];
+    } 
+     if(localStorage.EmailOfUser)
+    {
+         document.getElementById('emailtxt').value =localStorage["EmailOfUser"];
     }
-    
 }
 
 
