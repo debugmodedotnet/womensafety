@@ -65,17 +65,17 @@ function onGeolocationError(error) {
 
 
 
-function sendmessages(e)
+function senddangermessages(e)
 {
     
    var messagetosend ;
     
-     if (localStorage.messagestorage)
+     if (localStorage.DangerMessage)
     {
        
        
-         messagetosend =localStorage["messagestorage"];
-         
+         messagetosend = localStorage["DangerMessage"];
+        
        
     }
     
@@ -112,6 +112,55 @@ function sendmessages(e)
     
     
 }
+
+function sendsafemessage(e)
+{
+    
+   var messagetosend ;
+    
+     if (localStorage.SafeMessage)
+    {
+       
+       
+         messagetosend = localStorage["SafeMessage"];
+        
+       
+    }
+    
+    else
+    {
+        
+        messagetosend = " Hey Dear , I am Ok Now. Please do not worry ";
+        
+    }
+    
+    
+    
+    var  friendsfronlocalstoragetosendmessage=[];
+    var numberstosend ="";
+    if (localStorage.friendscontactstorage)
+        {
+            friendsfronlocalstoragetosendmessage = JSON.parse(localStorage["friendscontactstorage"]);
+             for(var i =0;i<friendsfronlocalstoragetosendmessage.length;i++)
+                {
+                        
+                        numberstosend = friendsfronlocalstoragetosendmessage[i].friend + "," + numberstosend ;
+                }
+         
+            
+            
+         window.location.href = "sms:" + numberstosend + "?body=" + messagetosend + "    I am at   "  + currentlocation;
+           // alert("hi");
+          
+        }
+    else
+    {
+        window.location.href = "sms:" + numberstosend + "?body=" + messagetosend+ " I am at   " + currentlocation;
+    }
+    
+    
+}
+
 
 
 function addnumbers(e)
@@ -197,12 +246,19 @@ function removeByIndex(arr, index) {
 }
 
  
-function savemessage()
+function savesetting()
 {
-     var messagetosend = document.getElementById('messagetext').value;    
-   
+    
+    var dangermessagetosend = document.getElementById('dangermessagetext').value;
+    var  safemessagetosend =  document.getElementById('safemessagetext').value;   
+    var  nameofuser =  document.getElementById('nametxt').value;
+    var  phonenumberofuser =  document.getElementById('phonenumbertxt').value;
+    
         
-    localStorage["messagestorage"]= messagetosend;
+    localStorage["DangerMessage"]= dangermessagetosend;
+    localStorage["SafeMessage"]= safemessagetosend;
+    localStorage["NameOfUser"]= nameofuser;
+    localStorage["PhoneNumberOfUser"]= phonenumberofuser;
     
   
     
@@ -211,13 +267,24 @@ function savemessage()
 
 function initsetting()
 {
-     if (localStorage.messagestorage)
+       
+    if(localStorage.DangerMessage)
     {
-       
-       
-         document.getElementById('messagetext').value =localStorage["messagestorage"];
-       
+         document.getElementById('safemessagetext').value =localStorage["DangerMessage"];
     }
+     if(localStorage.SafeMessage)
+    {
+         document.getElementById('dangermessagetext').value =localStorage["SafeMessage"];
+    }
+     if(localStorage.NameOfUser)
+    {
+         document.getElementById('nametxt').value =localStorage["NameOfUser"];
+    }
+     if(localStorage.PhoneNumberOfUser)
+    {
+         document.getElementById('phonenumbertxt').value =localStorage["PhoneNumberOfUser"];
+    }
+    
 }
 
 
