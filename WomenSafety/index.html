@@ -20,8 +20,9 @@
         
          <!-- Home View -->
         <div data-role="view" id="homeview" data-title="Home">
-           <a data-role="button" id="sendmessagebutton" data-click="sendmessages">Help</a> 
-        
+           
+           <a data-role="button" id="sendmessagebutton" data-click="sendmessages">HELP ME</a> 
+           <a data-role="button" id="sendsafemessgebutton" data-click ="sendsafemessage">I'm Safe</a>
            
         </div>
 
@@ -188,8 +189,22 @@
                     
                         <ul data-role="listview" data-style="inset">
                             <li>
-                                Message
-                              <textarea rows="3" id="messagetext" > </textarea>
+                                Safe Message
+                             </li>
+                            <li>
+                           <input type="text" />
+                            </li>
+                            <li>
+                                Warning  Message
+                              <textarea rows="2" id="warningmessagetext" > </textarea>
+                            </li>
+                            <li>
+                                Precaution Message
+                              <textarea rows="2" id="precautionmessagetext" > </textarea>
+                            </li>
+                            <li>
+                                Danger Message
+                              <textarea rows="2" id="dangermessagetext" > </textarea>
                             </li>
                             <li>
                                 <div>

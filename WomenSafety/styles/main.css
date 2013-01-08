@@ -116,9 +116,12 @@
 	
 }
 
+#sendsafemessgebutton
+{
+    
+}
 
-
-#sendmessagebutton
+#sendmessagebutton1
 {
         -webkit-transform: rotateX( 35deg );
         position: relative;
@@ -209,4 +212,25 @@
     font-size : 16px;    
     color : white ;
 }
-
+#sendmessagebutton
+{
+    margin-top : 30px;
+    color:white;
+    background-color:red;
+    height:75px;
+    width : 200px;
+    font-size : 40px;
+}
+#sendsafemessgebutton
+{
+    margin-top : 10px; 
+    color:white;
+    background-color:green;
+     height:75px;
+    width : 200px;
+    font-size : 40px;
+}
+#safemessagetext
+{
+    margin-left: -20px;
+}
