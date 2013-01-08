@@ -62,9 +62,34 @@ function onGeolocationSuccess(position) {
 function onGeolocationError(error) {
     $("#myLocation").html("<span class='err'>" + error.message + "</span>");
 }
-
-
-
+var watchID = null;
+function starttrackinglocation()
+{
+	// Create the options to send through
+	var options = {
+		enableHighAccuracy: true,
+        
+	};
+	// Watch the position and update
+	// when a change has been detected
+	watchID =
+	navigator.geolocation.watchPosition(
+		onSuccess, onError, options);
+    
+}
+// Run after successful transaction
+// Let's display the position data
+function onSuccess(position) {
+	var timestamp, latitude, longitude, accuracy;
+	timestamp = new Date(position.timestamp);
+	latitude = position.coords.latitude;
+	longitude = position.coords.longitude;
+	accuracy = position.coords.accuracy;
+    
+    //Update it to the server !!!!
+}
+function onError(error) {
+    }
 function senddangermessages(e)
 {
     
@@ -254,15 +279,18 @@ function savesetting()
     var  nameofuser =  document.getElementById('nametxt').value;
     var  phonenumberofuser =  document.getElementById('phonenumbertxt').value;
     var  emailofuser =  document.getElementById('emailtxt').value;
-    
+    var trackingduration = document.getElementById('trackingdurationtxt').value;
+    var trackinginterval = document.getElementById('trackinginervaltxt').value;
         
     localStorage["DangerMessage"]= dangermessagetosend;
     localStorage["SafeMessage"]= safemessagetosend;
     localStorage["NameOfUser"]= nameofuser;
     localStorage["PhoneNumberOfUser"]= phonenumberofuser;
     localStorage["EmailOfUser"]= emailofuser;
-  
+    localStorage["TrackingDuration"]= trackingduration;
+    localStorage["TrackingInterval"]= trackinginterval;
     
+      
     
 }
 
