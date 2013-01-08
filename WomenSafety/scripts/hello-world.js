@@ -268,7 +268,13 @@ function savesetting()
 
 function initsetting()
 {
-       
+    
+    document.getElementById('safemessagetext').value = "Hey I am Safe ! Don't worry " ;
+    document.getElementById('dangermessagetext').value = "I am in danger , Please help me ";
+    document.getElementById('nametxt').value = "Anoynimous " ;
+    document.getElementById('phonenumbertxt').value = "9999999999";
+     document.getElementById('emailtxt').value = "user@xyz.com";
+    
     if(localStorage.DangerMessage)
     {
          document.getElementById('safemessagetext').value =localStorage["DangerMessage"];
