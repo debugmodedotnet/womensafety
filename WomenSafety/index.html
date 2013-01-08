@@ -21,8 +21,11 @@
          <!-- Home View -->
         <div data-role="view" id="homeview" data-title="Home">
            
-           <a data-role="button" id="sendmessagebutton" data-click="sendmessages">HELP ME</a> 
-           <a data-role="button" id="sendsafemessgebutton" data-click ="sendsafemessage">I'm Safe</a>
+            <div id="sendsafemessagebuttondiv">
+            <a data-role="button" id="sendmessagebutton" data-click="sendmessages">HELP ME</a> 
+           
+           <a data-role="button" id="sendsafemessgebutton" data-click ="sendsafemessage">I'M SAFE</a>
+            </div>
            
         </div>
 
@@ -189,19 +192,15 @@
                     
                         <ul data-role="listview" data-style="inset">
                             <li>
-                                Safe Message
-                             </li>
-                            <li>
-                           <input type="text" />
+                                Name <input id="nametxt" type="text"/>
+                            </li>
+                             <li>
+                                Phone Number <input id="phonenumbertxt" type="tel"/>
                             </li>
                             <li>
-                                Warning  Message
-                              <textarea rows="2" id="warningmessagetext" > </textarea>
-                            </li>
-                            <li>
-                                Precaution Message
-                              <textarea rows="2" id="precautionmessagetext" > </textarea>
-                            </li>
+                               Safe Message                             
+                           <textarea rows="2" id="warningmessagetext" > </textarea>
+                            </li>                            
                             <li>
                                 Danger Message
                               <textarea rows="2" id="dangermessagetext" > </textarea>
