@@ -18,8 +18,35 @@ function onDeviceReady() {
     getLocation();
     //alert("You are running application in Test Mode.To change the mode go to settings. In Test mode we send message as \"Hey I am Testing this App \"");
     getCurrentDateandTime();
+    checkevolutionmode();
     
     
+}
+
+function checkevolutionmode()
+{
+    var modetouse;
+    if(localStorage.ModeOfUse)
+    {
+        
+        var rd = localStorage["ModeOfUse"];       
+        modetouse = rd.toLowerCase()=="true"?1:0;
+       
+    }
+    
+    else
+    {
+       modetouse = $("#modeswitch").data("kendoMobileSwitch").check();
+    }
+    
+    if(modetouse)
+    {
+        alert("You are using application in Test Mode ! Go to setting to chnage the working mode of Application ");
+    }
+    else
+    {
+        
+    }
 }
 
 function getCurrentDateandTime()
@@ -136,8 +163,29 @@ function senddangermessages(e)
 {
     
    var messagetosend ;
+    var modetouse;
+    if(localStorage.ModeOfUse)
+    {
+        
+        var rd = localStorage["ModeOfUse"];       
+        modetouse = rd.toLowerCase()=="true"?1:0;
+       
+    }
     
-     if (localStorage.DangerMessage)
+    else
+    {
+       modetouse = $("#modeswitch").data("kendoMobileSwitch").check();
+    }
+    
+    if(modetouse)
+    {
+        messagetosend = " Hey, I am Testing the Application ";
+        
+    }
+    else
+    {
+       
+          if (localStorage.DangerMessage)
     {
        
        
@@ -153,6 +201,10 @@ function senddangermessages(e)
         
     }
     
+        
+    }
+    
+   
     
     
     var  friendsfronlocalstoragetosendmessage=[];
@@ -343,7 +395,7 @@ function initsetting()
     
     document.getElementById('safemessagetext').value = "Hey I am Safe ! Don't worry " ;
     document.getElementById('dangermessagetext').value = "I am in danger , Please help me ";
-    document.getElementById('nametxt').value = "Anoynimous " ;
+    document.getElementById('nametxt').value = "Anonymous " ;
     document.getElementById('phonenumbertxt').value = "9999999999";
     document.getElementById('emailtxt').value = "user@xyz.com";
     
@@ -370,9 +422,8 @@ function initsetting()
     if(localStorage.ModeOfUse)
     {
         
-        var rd = localStorage["ModeOfUse"];
-       
-       var vrd = rd.toLowerCase()=="true"?1:0;
+        var rd = localStorage["ModeOfUse"];       
+        var vrd = rd.toLowerCase()=="true"?1:0;
         $("#modeswitch").data("kendoMobileSwitch").check(vrd);
     }
      if(localStorage.TrackMeValue)
@@ -554,8 +605,27 @@ var policestationssetailsdelhi = [
 {name :"Lahori Gate", phonenumber:"01123958234", group :"NORTH"},
 {name :"Chandni Chowk", phonenumber:"01123953442", group :"NORTH"},
 {name :"Kashmiri Gate", phonenumber:"01123968730", group :"NORTH"},
-                                    
-
+{name :"Sector 29", phonenumber:"01242396700", group :"GURGAON"},
+{name :"Sushant Lok", phonenumber:"01242386231", group :"GURGAON"},
+{name :"DLF PH-1", phonenumber:"01244059084", group :"GURGAON"},
+{name :"DLF PH-2", phonenumber:"01242566387", group :"GURGAON"},
+{name :"Sector 56", phonenumber:"01242578101 ", group :"GURGAON"},
+{name :"Sector 40", phonenumber:"01242381567 ", group :"GURGAON"},                                   
+{name :"Sadar", phonenumber:"01242201476", group :"GURGAON"},  
+{name :"Sector 5", phonenumber:"01242254610 ", group :"GURGAON"},  
+{name :"Palam Vihar", phonenumber:"01242360148", group :"GURGAON"}, 
+{name :"Rajendra Park", phonenumber:"01242469210", group :"GURGAON"}, 
+{name :"Udyog Vihar", phonenumber:"01242345054", group :"GURGAON"}, 
+{name :"Sector 17/18", phonenumber:"01242398140", group :"GURGAON"}, 
+{name :"Sector 10A", phonenumber:"01242370490", group :"GURGAON"}, 
+{name :"Civil Lines", phonenumber:"01242224233", group :"GURGAON"}, 
+{name :"Bilaspur", phonenumber:"01242379580", group :"GURGAON"}, 
+{name :"Manesar", phonenumber:"01242290100", group :"GURGAON"},
+{name :"Badshapur", phonenumber:"01242394062", group :"GURGAON"},
+{name :"Bhondsi", phonenumber:"01242267100", group :"GURGAON"},
+{name :"Sohna", phonenumber:"01242362225", group :"GURGAON"},
+{name :"Farukh Nagar", phonenumber:"01242375228", group :"GURGAON"},
+{name :"Pataudi", phonenumber:"01242672970", group :"GURGAON"},
 
 ];
 
