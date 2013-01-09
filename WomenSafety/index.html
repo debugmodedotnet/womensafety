@@ -221,20 +221,18 @@
                               <li>
                                 Tracking Duration
                               <input id="trackingdurationtxt" type="number"/>
-                            </li>
-                            
-                            <li>
-                                <div>
-                                <a id="savemessage" data-role="button" data-click="savesetting" data-icon="edit">Update</a>
-                                </div>
-                            </li>
-                            <li>Track Location                                 
-                               <input type="checkkbox" data-role="switch" id="tracklocationswitch" checked /> 
-                                
+                            </li>                           
+                             <li>Track Location                                 
+                               <input type="checkkbox" data-role="switch" id="trackmelocationswitch" />                                
                             </li>
                             <li>
                              Evaluation Mode                           
-                           <input type="checkkbox" data-role="switch" id="modeswitch" />
+                            <input type="checkkbox" data-role="switch" id="modeswitch" />
+                            </li>
+                             <li>
+                                <div>
+                                <a id="savemessage" data-role="button" data-click="savesetting" data-icon="edit">Update</a>
+                                </div>
                             </li>
                             
                         </ul>
@@ -246,8 +244,8 @@
             <header data-role="header">
                 <div data-role="navbar">
                     <span data-role="view-title"></span>
-                    <a data-role="backbutton" data-align="left">Back</a>
-                    <a  data-role="button" data-align="right" data-icon="settings" href="#settingsview"  ></a>
+                    <a data-role="button" data-align="left" data-icon="globe" href="#map">Location</a>                  
+                    <a  data-role="button" data-align="right" data-icon="settings"  href="#settingsview">Settings</a>
                     
                 </div>
                 
@@ -271,8 +269,8 @@
             <header data-role="header">
                 <div data-role="navbar">
                     <span data-role="view-title"></span>
-                    <a data-role="backbutton" data-align="left">Back</a>
-                    <a  data-role="button" data-align="right" data-icon="search" href="#modal-search" data-rel="modalview"  ></a>
+                    <a data-role="button" data-align="left" data-icon="globe" href="#map">Location</a>
+                    <a  data-role="button" data-align="right" data-icon="search" href="#modal-search" data-rel="modalview">Search</a>
                     
                 </div>
                 
@@ -302,6 +300,21 @@
                 </div>
             </div>
         </div>
+        
+        
+         <!-- ********************************************************************************* -->
+		<!-- ************************************** Map ************************************** -->
+		<!-- ********************************************************************************* -->
+		<div data-role="view" id="map" data-title="Map" data-stretch="true">
+            
+			<div data-role="content" class="container">
+					<div id="map_canvas" style="width: 100%; height: 100%; position: absolute;"></div>
+                <img src="" /><img src="" />
+			</div>
+		</div>
+        
+        
+        
         <script>
             var app = new kendo.mobile.Application(document.body, { transition: "slide", layout: "mobile-tabstrip" });
         </script>

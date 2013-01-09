@@ -18,6 +18,8 @@ function onDeviceReady() {
     getLocation();
     //alert("You are running application in Test Mode.To change the mode go to settings. In Test mode we send message as \"Hey I am Testing this App \"");
     getCurrentDateandTime();
+    
+    
 }
 
 function getCurrentDateandTime()
@@ -37,6 +39,15 @@ function getLocation() {
     navigator.geolocation.getCurrentPosition(onGeolocationSuccess, onGeolocationError);
 }
 
+function showMap()
+{
+     //getLocationOfUser();
+    
+}
+
+
+
+
 
 
 //=======================Geolocation Operations=======================//
@@ -53,6 +64,37 @@ function onGeolocationSuccess(position) {
                 
             }
         }
+    });
+    
+     var mapOptions = {
+                            
+         sensor:true,
+         center: latlng,
+                            panControl: true,                            
+                            zoomControl: true,
+                            zoom: 10,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP,
+         streetViewControl: false,
+        mapTypeControl: true,
+          mapTypeControlOptions: {
+            position: google.maps.ControlPosition.TOP_RIGHT
+        },
+          zoomControl: true,
+        zoomControlOptions: {
+            style: google.maps.ZoomControlStyle.LARGE,
+            position: google.maps.ControlPosition.LEFT_CENTER
+        },
+                           
+};
+    
+    var map = new google.maps.Map(
+                document.getElementById('map_canvas'),
+                mapOptions
+        );
+    
+    var marker = new google.maps.Marker({
+                position: latlng,
+                map: map
     });
 
    
@@ -281,7 +323,8 @@ function savesetting()
     var  emailofuser =  document.getElementById('emailtxt').value;
     var trackingduration = document.getElementById('trackingdurationtxt').value;
     var trackinginterval = document.getElementById('trackinginervaltxt').value;
-        
+    var modeofuse =  $("#modeswitch").data("kendoMobileSwitch").check(); 
+    var tracklocation = $("#trackmelocationswitch").data("kendoMobileSwitch").check();   
     localStorage["DangerMessage"]= dangermessagetosend;
     localStorage["SafeMessage"]= safemessagetosend;
     localStorage["NameOfUser"]= nameofuser;
@@ -289,8 +332,9 @@ function savesetting()
     localStorage["EmailOfUser"]= emailofuser;
     localStorage["TrackingDuration"]= trackingduration;
     localStorage["TrackingInterval"]= trackinginterval;
-    
-      
+    localStorage["ModeOfUse"]= modeofuse;
+    localStorage["TrackMeValue"]= tracklocation;
+         
     
 }
 
@@ -301,7 +345,7 @@ function initsetting()
     document.getElementById('dangermessagetext').value = "I am in danger , Please help me ";
     document.getElementById('nametxt').value = "Anoynimous " ;
     document.getElementById('phonenumbertxt').value = "9999999999";
-     document.getElementById('emailtxt').value = "user@xyz.com";
+    document.getElementById('emailtxt').value = "user@xyz.com";
     
     if(localStorage.DangerMessage)
     {
@@ -322,6 +366,21 @@ function initsetting()
      if(localStorage.EmailOfUser)
     {
          document.getElementById('emailtxt').value =localStorage["EmailOfUser"];
+    }    
+    if(localStorage.ModeOfUse)
+    {
+        
+        var rd = localStorage["ModeOfUse"];
+       
+       var vrd = rd.toLowerCase()=="true"?1:0;
+        $("#modeswitch").data("kendoMobileSwitch").check(vrd);
+    }
+     if(localStorage.TrackMeValue)
+    {
+     
+        var rd1 = localStorage["TrackMeValue"];
+       var vrd1 = rd1.toLowerCase()=="true"?1:0;
+        $("#trackmelocationswitch").data("kendoMobileSwitch").check(vrd1);
     }
 }
 
