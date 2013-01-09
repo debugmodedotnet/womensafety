@@ -41,7 +41,7 @@ function checkevolutionmode()
     
     if(modetouse)
     {
-        alert("You are using application in Test Mode ! Go to setting to chnage the working mode of Application ");
+        alert("You are using application in Test Mode ! Go to Settings to remove it from Test Mode.");
     }
     else
     {
@@ -626,6 +626,11 @@ var policestationssetailsdelhi = [
 {name :"Sohna", phonenumber:"01242362225", group :"GURGAON"},
 {name :"Farukh Nagar", phonenumber:"01242375228", group :"GURGAON"},
 {name :"Pataudi", phonenumber:"01242672970", group :"GURGAON"},
+{name :"Sector 20", phonenumber:"01202523102", group :"NOIDA"},
+{name :"Sector 24", phonenumber:"01202411173", group :"NOIDA"},
+{name :"Sector 39", phonenumber:"01202577100", group :"NOIDA"},
+{name :"Sector 49", phonenumber:"01202573665", group :"NOIDA"},
+{name :"Sector 58", phonenumber:"01202580412", group :"NOIDA"},
 
 ];
 
