@@ -31,7 +31,7 @@ function homeviewshow()
         
         if(e.checked)
         {
-            alert("on");
+            
              getLocation();
 			var friendsfronlocalstoragetosendmessage = [];
 			var numberstosend = "";
@@ -54,7 +54,7 @@ function homeviewshow()
         }
         else
         {
-           alert("off");
+         
             stoptrackinglocation();
         }
     }
@@ -166,12 +166,19 @@ var watchID = null;
 function starttrackinglocation()
 {
 	
-     console.log("start");
+     
+     var  trackintvalue= 60000;
+     if(localStorage.TrackingInterval)
+    {
+        trackintvalue =localStorage["TrackingInterval"]*1000;
+        
+    }  
+
     
    
 	var options = {
 		enableHighAccuracy: true,
-       frequency: 3000,
+       frequency: trackintvalue,
         
 	};
 	// Watch the position and update
@@ -227,7 +234,7 @@ function onSuccess(position) {
             if ((results.length > 1) && results[1]) {
                
                 clocation = results[1].formatted_address;
-                alert(clocation);
+              
                
 				var friendsfronlocalstoragetosendmessage = [];
 				var numberstosend = "";
@@ -278,12 +285,12 @@ function senddangermessages(e)
     if(modetouse)
     {
         messagetosend = " Hey, I am Testing the Application ";
-        alert("true");
+      
     }
     else
     {
        
-       // alert("false");
+      
           if (localStorage.DangerMessage)
     {
        
@@ -391,7 +398,7 @@ function sendsafemessage(e)
             
             
          window.location.href = "sms:" + numberstosend + "?body=" + messagetosend + "    I am at   "  + currentlocation;
-           // alert("hi");
+         
           
         }
     else
