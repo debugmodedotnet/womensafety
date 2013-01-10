@@ -32,7 +32,7 @@ function homeviewshow()
         if(e.checked)
         {
             
-             getLocation();
+            getLocation();
 			var friendsfronlocalstoragetosendmessage = [];
 			var numberstosend = "";
             var messagetosend = "Please track me as I travel.I will send updates of my current location perodically. On reaching the destination I will send a final update.";
