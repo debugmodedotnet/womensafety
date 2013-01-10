@@ -62,6 +62,7 @@
     <Content Include="appimages\emergencyimg.png" />
     <Content Include="appimages\hospital.jpg" />
     <Content Include="appimages\indianpolice.jpg" />
+    <Content Include="appimages\needhelpbutton.jpg" />
     <Content Include="appimages\ngoimage.png" />
     <Content Include="index.html" />
     <Content Include="kendo\js\jquery.min.js" />

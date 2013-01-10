@@ -15,17 +15,37 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 // PhoneGap is ready
 function onDeviceReady() {
-    getLocation();
-    //alert("You are running application in Test Mode.To change the mode go to settings. In Test mode we send message as \"Hey I am Testing this App \"");
+    getLocation();    
     getCurrentDateandTime();
     checkevolutionmode();
     
     
 }
 
+function homeviewshow()
+{
+    
+    $("#trackonoffswitch").data("kendoMobileSwitch").bind("change", function(e) {
+        
+     console.log(e.checked); // true or false
+        
+        if(e.checked)
+        {
+            alert("on");
+            starttrackinglocation();
+        }
+        else
+        {
+           alert("off");
+            stoptrackinglocation();
+        }
+    }
+    )
+}
+
 function checkevolutionmode()
 {
-    var modetouse;
+    var modetouse=false;
     if(localStorage.ModeOfUse)
     {
         
@@ -34,19 +54,20 @@ function checkevolutionmode()
        
     }
     
-    else
-    {
-       modetouse = $("#modeswitch").data("kendoMobileSwitch").check();
-    }
+   // else
+ //   {
+   //    modetouse = $("#modeswitch").data("kendoMobileSwitch").check();
+  //  }
     
     if(modetouse)
     {
         alert("You are using application in Test Mode ! Go to Settings to remove it from Test Mode.");
+        app.navigate("#settingsview");
     }
-    else
-    {
+  //  else
+  //  {
         
-    }
+  //  }
 }
 
 function getCurrentDateandTime()
@@ -66,15 +87,6 @@ function getLocation() {
     navigator.geolocation.getCurrentPosition(onGeolocationSuccess, onGeolocationError);
 }
 
-function showMap()
-{
-     //getLocationOfUser();
-    
-}
-
-
-
-
 
 
 //=======================Geolocation Operations=======================//
@@ -93,26 +105,26 @@ function onGeolocationSuccess(position) {
         }
     });
     
-     var mapOptions = {
+	var mapOptions = {
                             
-         sensor:true,
-         center: latlng,
-                            panControl: true,                            
-                            zoomControl: true,
-                            zoom: 10,
-                            mapTypeId: google.maps.MapTypeId.ROADMAP,
-         streetViewControl: false,
-        mapTypeControl: true,
-          mapTypeControlOptions: {
-            position: google.maps.ControlPosition.TOP_RIGHT
-        },
-          zoomControl: true,
-        zoomControlOptions: {
-            style: google.maps.ZoomControlStyle.LARGE,
-            position: google.maps.ControlPosition.LEFT_CENTER
-        },
+		sensor:true,
+		center: latlng,
+		panControl: true,                            
+		zoomControl: true,
+		zoom: 10,
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		streetViewControl: false,
+		mapTypeControl: true,
+		mapTypeControlOptions: {
+			position: google.maps.ControlPosition.TOP_RIGHT
+		},
+		zoomControl: true,
+		zoomControlOptions: {
+			style: google.maps.ZoomControlStyle.LARGE,
+			position: google.maps.ControlPosition.LEFT_CENTER
+		},
                            
-};
+	};
     
     var map = new google.maps.Map(
                 document.getElementById('map_canvas'),
@@ -123,20 +135,24 @@ function onGeolocationSuccess(position) {
                 position: latlng,
                 map: map
     });
-
+   console.log(marker);
    
 }
 
 // onGeolocationError Callback receives a PositionError object
 function onGeolocationError(error) {
-    $("#myLocation").html("<span class='err'>" + error.message + "</span>");
+   
 }
+
 var watchID = null;
 function starttrackinglocation()
 {
-	// Create the options to send through
+	
+     console.log("start");
+   
 	var options = {
 		enableHighAccuracy: true,
+       frequency: 3000,
         
 	};
 	// Watch the position and update
@@ -146,24 +162,52 @@ function starttrackinglocation()
 		onSuccess, onError, options);
     
 }
+
+function stoptrackinglocation()
+{
+    console.log("stop");
+    if (watchID != null) {
+            navigator.geolocation.clearWatch(watchID);
+            watchID = null;
+        }
+
+
+    
+}
 // Run after successful transaction
 // Let's display the position data
 function onSuccess(position) {
-	var timestamp, latitude, longitude, accuracy;
-	timestamp = new Date(position.timestamp);
+	var  latitude, longitude;   
+    var clocation;
 	latitude = position.coords.latitude;
+    alert(latitude);
 	longitude = position.coords.longitude;
-	accuracy = position.coords.accuracy;
+     alert(longitude);
+    var geocoder = new google.maps.Geocoder();
+    var latlng = new google.maps.LatLng(latitude,longitude);
+    geocoder.geocode({ "latLng": latlng }, function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            alert("ok");
+            if ((results.length > 1) && results[1]) {
+               
+                clocation = results[1].formatted_address;
+                alert("if me");
+                
+            }
+        }
+    });
     
-    //Update it to the server !!!!
+     window.location.href = "sms:" + "9717098666" + "?body=" + "HHHHH" + "    I am at   "  + clocation ;
 }
 function onError(error) {
     }
+
+
 function senddangermessages(e)
 {
     
    var messagetosend ;
-    var modetouse;
+    var modetouse=false;
     if(localStorage.ModeOfUse)
     {
         
@@ -172,19 +216,20 @@ function senddangermessages(e)
        
     }
     
-    else
-    {
-       modetouse = $("#modeswitch").data("kendoMobileSwitch").check();
-    }
+    //else
+   // {
+    //   modetouse = $("#modeswitch").data("kendoMobileSwitch").check();
+  //  }
     
     if(modetouse)
     {
         messagetosend = " Hey, I am Testing the Application ";
-        
+        alert("true");
     }
     else
     {
        
+       // alert("false");
           if (localStorage.DangerMessage)
     {
        
@@ -221,7 +266,7 @@ function senddangermessages(e)
             
             
          window.location.href = "sms:" + numberstosend + "?body=" + messagetosend + "    I am at   "  + currentlocation;
-           // alert("hi");
+          
           
         }
     else
@@ -236,8 +281,28 @@ function sendsafemessage(e)
 {
     
    var messagetosend ;
+   var modetouse=false;
+    if(localStorage.ModeOfUse)
+    {
+        
+        var rd = localStorage["ModeOfUse"];       
+        modetouse = rd.toLowerCase()=="true"?1:0;
+       
+    }
     
-     if (localStorage.SafeMessage)
+  //  else
+  //  {
+  //     modetouse = $("#modeswitch").data("kendoMobileSwitch").check();
+  //  }
+    
+     if(modetouse)
+    {
+        messagetosend = " Hey, I am Testing the Application ";
+       
+    }
+    else
+    {
+          if (localStorage.SafeMessage)
     {
        
        
@@ -252,6 +317,9 @@ function sendsafemessage(e)
         messagetosend = " Hey Dear , I am Ok Now. Please do not worry ";
         
     }
+        
+    }
+   
     
     
     

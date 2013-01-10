@@ -19,17 +19,20 @@
         
         
          <!-- Home View -->
-        <div data-role="view" id="homeview" data-title="Home">
-           
-            <div id="sendsafemessagebuttondiv">
-              <h3> Track Me </h3>         
-            <input type="checkkbox" data-role="switch" id="tracklocationswitch"/> 
-              <br/>
-            <a data-role="button" id="sendmessagebutton" data-click="senddangermessages">HELP ME</a> <br/>  
-            <a data-role="button" id="sendsafemessgebutton" data-click ="sendsafemessage">I'M SAFE</a>
+        <div data-role="view" id="homeview" data-title="Home" data-show="homeviewshow">
            
            
-                             
+            <a data-role="button" id="sendmessagebutton" data-click="senddangermessages">HELP ME</a> 
+            <div id="sendsafemessagebuttondiv">          
+                  
+                <div data-role="footer">               
+                     <label id="trackmelabel">Track Me</label>   
+                    <input type="checkbox" data-role="switch" id="trackonoffswitch" /> <br/>   
+                    <a data-role="button" id="sendsafemessgebutton" data-click ="sendsafemessage">I'm Safe</a>
+              
+                </div>
+           
+                    
             
            </div>
            
