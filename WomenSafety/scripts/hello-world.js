@@ -32,6 +32,24 @@ function homeviewshow()
         if(e.checked)
         {
             alert("on");
+             getLocation();
+			var friendsfronlocalstoragetosendmessage = [];
+			var numberstosend = "";
+            var messagetosend = "I am travelling alone. I will keep updating you my current location. At the end I will update you that I reached destination";
+			if (localStorage.friendscontactstorage) {
+				friendsfronlocalstoragetosendmessage = JSON.parse(localStorage["friendscontactstorage"]);
+				for (var i = 0;i < friendsfronlocalstoragetosendmessage.length;i++) {
+                        
+					numberstosend = friendsfronlocalstoragetosendmessage[i].friend + "," + numberstosend ;
+				}
+         
+				window.location.href = "sms:" + numberstosend + "?body=" + messagetosend + "Currently I am at   " + currentlocation;
+          
+			}
+			else {
+				window.location.href = "sms:" + numberstosend + "?body=" + messagetosend + "Currently I am at   " + currentlocation;
+			}
+			
             starttrackinglocation();
         }
         else
@@ -149,6 +167,7 @@ function starttrackinglocation()
 {
 	
      console.log("start");
+    
    
 	var options = {
 		enableHighAccuracy: true,
@@ -165,10 +184,27 @@ function starttrackinglocation()
 
 function stoptrackinglocation()
 {
-    console.log("stop");
+    
+    var messagetosend = "I have reached destination. Thanks for the help :)";
     if (watchID != null) {
             navigator.geolocation.clearWatch(watchID);
             watchID = null;
+            var friendsfronlocalstoragetosendmessage = [];
+				var numberstosend = "";
+				if (localStorage.friendscontactstorage) {
+					friendsfronlocalstoragetosendmessage = JSON.parse(localStorage["friendscontactstorage"]);
+					for (var i = 0;i < friendsfronlocalstoragetosendmessage.length;i++) {
+                        
+						numberstosend = friendsfronlocalstoragetosendmessage[i].friend + "," + numberstosend ;
+					}
+         
+					
+                    window.location.href = "sms:" + numberstosend + "?body=" + messagetosend ;
+          
+				}
+				else {
+					window.location.href = "sms:" + numberstosend + "?body=" + messagetosend ;
+				}
         }
 
 
@@ -179,25 +215,43 @@ function stoptrackinglocation()
 function onSuccess(position) {
 	var  latitude, longitude;   
     var clocation;
-	latitude = position.coords.latitude;
-    alert(latitude);
+	latitude = position.coords.latitude; 
 	longitude = position.coords.longitude;
-     alert(longitude);
+    var messagetosend = "I am good as of now.";
+    
     var geocoder = new google.maps.Geocoder();
     var latlng = new google.maps.LatLng(latitude,longitude);
     geocoder.geocode({ "latLng": latlng }, function (results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
-            alert("ok");
+            
             if ((results.length > 1) && results[1]) {
                
                 clocation = results[1].formatted_address;
-                alert("if me");
+                alert(clocation);
+               
+				var friendsfronlocalstoragetosendmessage = [];
+				var numberstosend = "";
+				if (localStorage.friendscontactstorage) {
+					friendsfronlocalstoragetosendmessage = JSON.parse(localStorage["friendscontactstorage"]);
+					for (var i = 0;i < friendsfronlocalstoragetosendmessage.length;i++) {
+                        
+						numberstosend = friendsfronlocalstoragetosendmessage[i].friend + "," + numberstosend ;
+					}
+         
+					window.location.href = "sms:" + numberstosend + "?body=" + messagetosend + " Currently I am at   " + clocation;
+          
+				}
+				else {
+					window.location.href = "sms:" + numberstosend + "?body=" + messagetosend + "Currently I am at   " + clocation;
+				}
+                            
+         
                 
             }
         }
     });
     
-     window.location.href = "sms:" + "9717098666" + "?body=" + "HHHHH" + "    I am at   "  + clocation ;
+    
 }
 function onError(error) {
     }
@@ -466,6 +520,8 @@ function initsetting()
     document.getElementById('nametxt').value = "Anonymous " ;
     document.getElementById('phonenumbertxt').value = "9999999999";
     document.getElementById('emailtxt').value = "user@xyz.com";
+    document.getElementById('trackinginervaltxt').value = 60;
+    document.getElementById('trackingdurationtxt').value = 10;
     
     if(localStorage.DangerMessage)
     {
@@ -501,6 +557,16 @@ function initsetting()
        var vrd1 = rd1.toLowerCase()=="true"?1:0;
         $("#trackmelocationswitch").data("kendoMobileSwitch").check(vrd1);
     }
+   
+     if(localStorage.TrackingInterval)
+    {
+         document.getElementById('trackinginervaltxt').value =localStorage["TrackingInterval"];
+    }  
+    
+     if(localStorage.TrackingDuration)
+    {
+         document.getElementById('trackingdurationtxt').value =localStorage["TrackingDuration"];
+    }  
 }
 
 

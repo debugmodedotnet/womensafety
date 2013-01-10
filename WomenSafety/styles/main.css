@@ -208,15 +208,7 @@
     font-size : 16px;    
     color : white ;
 }
-#sendmessagebutton1
-{
-    margin-top : 40px;
-    color:white;
-    background-color:red;
-    height:75px;
-    width : 200px;
-    font-size : 40px;
-}
+
 #sendsafemessgebutton
 {
     margin-top : 20px; 
@@ -225,14 +217,18 @@
     width : 50%;
     font-size : 20px;
     }
-#trackmebutton
+
+#savesettingbutton
 {
-    margin-top : 10px; 
+    margin-top : 20px; 
     color:white;
-    background-color:green;   
-    font-size : 30px;
-   
-}
+    background-color:green;  
+    width : 50%;
+    font-size : 20px;
+    text-align:center;
+    margin-left: 23px;
+ }
+
 #safemessagetext
 {
     margin-left: -20px;
@@ -246,6 +242,7 @@
   
     
 }
+
 #trackonoffswitch1
 {
     margin-left: 20px;
@@ -256,4 +253,15 @@
     font-size : 20px;
     margin-right: 20px;
     
+}
+.settinglabelspan
+{
+    text-align:left;
+    font-size : 14px;
+}
+.settinglabelspan1
+{
+    text-align:left;
+    font-size : 11px;
+    color:green;
 }

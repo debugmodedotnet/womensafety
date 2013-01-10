@@ -201,40 +201,45 @@
                     
                         <ul data-role="listview" data-style="inset">
                             <li>
-                                Name <input id="nametxt" type="text"/>
-                            </li>
-                             <li>
-                                Phone Number <input id="phonenumbertxt" type="tel"/>
-                            </li>
-                             <li>
-                                EMail <input id="emailtxt" type="email"/>
+                                <span class="settinglabelspan1">To apply changes edit values and press UPDATE</span>
                             </li>
                             <li>
-                               Safe Message                             
+                               <span class="settinglabelspan"> Name </span><input id="nametxt" type="text"/>
+                            </li>
+                             <li>
+                               <span class="settinglabelspan"> Phone Number</span> <input id="phonenumbertxt" type="tel"/>
+                            </li>
+                             <li>
+                               <span class="settinglabelspan"> EMail </span> <input id="emailtxt" type="email"/>
+                            </li>
+                            <li>
+                               <span class="settinglabelspan"> Safe Message  </span>                           
                            <textarea rows="2" id="safemessagetext" > </textarea>
                             </li>                            
                             <li>
-                                Danger Message
+                              <span class="settinglabelspan">  Danger Message </span>
                               <textarea rows="2" id="dangermessagetext" > </textarea>
                             </li>
                               <li>
-                               Tracking Interval
-                              <input id="trackinginervaltxt" type="number"/>
+                              <span class="settinglabelspan"> Track Intravel in Sec </span>
+                              
+                              <input id="trackinginervaltxt" type="number"/>                               
                             </li>
                               <li>
-                                Tracking Duration
+                             <span class="settinglabelspan"> Track Duration in Min </span>
                               <input id="trackingdurationtxt" type="number"/>
+                               
                             </li>                           
-                             <li>Track Location                                 
+                             <li> <span class="settinglabelspan">Track Location  </span>                               
                                <input type="checkkbox" data-role="switch" id="trackmelocationswitch" />                                
                             </li>
                             <li>
-                             Evaluation Mode                           
+                             <span class="settinglabelspan"> Evaluation Mode  </span>                     
                             <input type="checkkbox" data-role="switch" id="modeswitch" />
                             </li>
                              <li>
                                 <div>
-                                <a id="savemessage" data-role="button" data-click="savesetting" data-icon="edit">Update</a>
+                                <a id="savesettingbutton" data-role="button" data-click="savesetting">Update</a>
                                 </div>
                             </li>
                             
