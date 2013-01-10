@@ -453,8 +453,9 @@ function addnumbers(e)
 function showfriends(e)
 {
    
-      
-	if (localStorage.friendscontactstorage) {
+       $("#enterphonenumbererror").text("");
+	
+    if (localStorage.friendscontactstorage) {
 		friendsfronlocalstorage = JSON.parse(localStorage["friendscontactstorage"]);
 	}
 	var friendsdata = new kendo.data.DataSource(
