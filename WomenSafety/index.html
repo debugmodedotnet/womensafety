@@ -40,20 +40,12 @@
 
         <!-- Friends View -->
         <div data-role="view" id="friendsview" data-title="Friends" data-show="showfriends" >  
-            
-            
-
-			<ul id="buttongroup" data-role="buttongroup" data-index="0">
-                
-				<li data-icon="add">Add Friend</li>
-				<li data-icon="contacts">Choose Friend</li>
-                
-			</ul>
-
+          
 
             <div id="addnumbersdiv">    
-                    <input id="numberinputbox" type="tel" />
-                    <a id="addfriendsbutton" data-role="button" data-click="addnumbers" data-icon="add"> </a>
+                    <input id="numberinputbox" type="tel" /> <br/>
+                    <span id="enterphonenumbererror"></span><br/>
+                    <a id="addfriendsbutton" data-role="button" data-click="addnumbers">Add Numbers to Notify</a>
             </div>
            
             <div id="friendlistdiv" >
@@ -91,9 +83,9 @@
 					data-role="listview"
 					data-style="inset">                    
                     <li><a href="#policestationview" class="km-listview-link" data-role="listview-link"><img class="pullImage" src="appimages\indianpolice.jpg"/>Police Stations</a></li>
-                    <li><a href="#homeview" class="km-listview-link" data-role="listview-link"><img class="pullImage" src="appimages\hospital.jpg"/>Hospitals</a></li>
-                     <li><a href="#homeview" class="km-listview-link" data-role="listview-link"><img class="pullImage" src="appimages\emergency.png"/>Emergency Number</a></li>
-                    <li><a href="#homeview" class="km-listview-link" data-role="listview-link"><img class="pullImage" src="appimages\ngoimage.png"/>NGO</a></li>
+                    <li><a href="#policestationview" class="km-listview-link" data-role="listview-link"><img class="pullImage" src="appimages\hospital.jpg"/>Hospitals</a></li>
+                     <li><a href="#policestationview" class="km-listview-link" data-role="listview-link"><img class="pullImage" src="appimages\emergency.png"/>Emergency Number</a></li>
+                    <li><a href="#policestationview" class="km-listview-link" data-role="listview-link"><img class="pullImage" src="appimages\ngoimage.png"/>NGO</a></li>
                    
 				</ul>
 			</div>
@@ -101,7 +93,7 @@
         </div>
         
          <!-- Police Staions View -->
-        <div data-role="view" id="policestationview" data-layout="mobile-tabstrip-search">
+        <div data-role="view" id="policestationview">
             
             <ul data-role="listview" 
                 id="policestationlistview" 
@@ -120,7 +112,7 @@
          <div>		
            <a data-role="listview-link" data-style="trash">
            #=name # <br/>
-          <span class="listTime">#= phonenumber#</span></a>
+          <span class="listTimered">#= phonenumber#</span></a>
           <a data-role="button" class="details-link" data-icon="action">Call</a>
           </div>          
 		</script>
@@ -135,42 +127,42 @@
 			<ul data-role="listview">
 
 				<li>
-					Date/Time           
-					<label  id="timebox"> </label>
+				  <span class="settinglabelspan">Date/Time </span>          
+				 <label  id="timebox"> </label>
 				</li>
 				<li>
-					Location                 
+					<span class="settinglabelspan">Location </span>              
 					<label id="locationbox"> </label>
 				</li>
 				<li>
-					Type of Report            
+				 <span class="settinglabelspan">	Type of Report </span>           
 					<select id="typeofreport">
+                        <option value="VerbalAbuse">Verbal Abuse</option>
 						<option value="Rape">Rape</option>
 						<option value="EveTeasing">Eve Teasing</option>
-						<option value="Molestation">Molestation</option>
-						<option value="VerbalAbuse">Verbal Abuse</option>
+						<option value="Molestation">Molestation</option>						
 						<option value="Harassmentatwork">Harassment at work</option>
 
 					</select>
 				</li>
 				<li>
-					Comment
-                 <textarea rows="3" column="70" id="commenttext" >
+                    <span class="settinglabelspan">Comment</span>
+                  <textarea rows="3" column="70" id="commenttext" >
                  </textarea>
-				</li>
+				</li>				
 				<li>
-					<div>
-						<a id="takephoto" data-role="button" data-click="takephoto" data-icon="camera">Attach Photo</a>
-					</div>
-				</li>
-				<li>
-					<div>
-						<a id="savereport" data-role="button" data-click="savereport" data-icon="organize">Save</a>
-                        <a id="submitreport" data-role="button" data-click="submitreport" data-icon="action">Submit</a>
-                        <a id="showreport" data-role="button" data-click="showsavedreport" data-icon="share">Show</a>
+					<div id="reportbuttonsdiv">
+						<a id="savereport" data-role="button" data-click="savereport">Save</a>
+                        <a id="submitreport" data-role="button" data-click="submitreport">Submit</a>
+                       
 						                       
 					</div>
 				</li>
+                <li>
+                    <div id="showsavedreportbuttondiv">
+                         <a id="showreport" data-role="button" data-click="showsavedreport">Show</a>
+                    </div>
+                </li>
 
 			</ul>
 		
@@ -190,9 +182,12 @@
          <script type= "text/x-kendo-template" id="savedreporttemplate">
          <div>		
            <a data-role="listview-link">
-           #=location# #=comment# <br/>
-          <span class="listTime">#= time#</span></a>
-          <a data-role="button" class="details-link" data-icon="action">Sync</a>
+           #=comment# <br/>
+          <span class="listTime">  #=location# #= time#</span></a>
+          <div id="syncdeletebuttondiv">  
+          <a data-role="button" id="syncreportbutton" data-click="syncreport" data-icon="action">Sync</a>
+          <a data-role="button" id="deletereportbutton" data-click="deletereport" data-icon="trash">Delete</a>
+          </div>  
           </div>          
 		</script>
         
@@ -201,7 +196,7 @@
                     
                         <ul data-role="listview" data-style="inset">
                             <li>
-                                <span class="settinglabelspan1">To apply changes edit values and press UPDATE</span>
+                                <span class="settinglabelspan1">Press UPDATE to apply changes</span>
                             </li>
                             <li>
                                <span class="settinglabelspan"> Name </span><input id="nametxt" type="text"/>
@@ -238,7 +233,7 @@
                             <input type="checkkbox" data-role="switch" id="modeswitch" />
                             </li>
                              <li>
-                                <div>
+                                <div id="savesettingbuttondiv">
                                 <a id="savesettingbutton" data-role="button" data-click="savesetting">Update</a>
                                 </div>
                             </li>

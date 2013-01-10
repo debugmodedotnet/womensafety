@@ -35,7 +35,7 @@ function homeviewshow()
              getLocation();
 			var friendsfronlocalstoragetosendmessage = [];
 			var numberstosend = "";
-            var messagetosend = "I am travelling alone. I will keep updating you my current location. At the end I will update you that I reached destination";
+            var messagetosend = "Please track me as I travel.I will send updates of my current location perodically. On reaching the destination I will send a final update.";
 			if (localStorage.friendscontactstorage) {
 				friendsfronlocalstoragetosendmessage = JSON.parse(localStorage["friendscontactstorage"]);
 				for (var i = 0;i < friendsfronlocalstoragetosendmessage.length;i++) {
@@ -79,7 +79,7 @@ function checkevolutionmode()
     
     if(modetouse)
     {
-        alert("You are using application in Test Mode ! Go to Settings to remove it from Test Mode.");
+        alert("You are using application in Test Mode! Go to Settings to remove it from Test Mode.");
         app.navigate("#settingsview");
     }
   //  else
@@ -192,7 +192,7 @@ function starttrackinglocation()
 function stoptrackinglocation()
 {
     
-    var messagetosend = "I have reached destination. Thanks for the help :)";
+    var messagetosend = "I have reached my destination. Thanks for tracking my journey :)";
     if (watchID != null) {
             navigator.geolocation.clearWatch(watchID);
             watchID = null;
@@ -284,7 +284,7 @@ function senddangermessages(e)
     
     if(modetouse)
     {
-        messagetosend = " Hey, I am Testing the Application ";
+        messagetosend = "I am Testing the Safety Application. Please ignore this message.";
       
     }
     else
@@ -303,7 +303,7 @@ function senddangermessages(e)
     else
     {
         
-        messagetosend = " Hey Dear , Please help me . I am in danger ";
+        messagetosend = "URGENT! I may be in danger and need your help. Please call me back immidiately. This is not a test.";
         
     }
     
@@ -358,7 +358,7 @@ function sendsafemessage(e)
     
      if(modetouse)
     {
-        messagetosend = " Hey, I am Testing the Application ";
+        messagetosend = "I am Testing the Safety Application. Please ignore this message.";
        
     }
     else
@@ -375,7 +375,7 @@ function sendsafemessage(e)
     else
     {
         
-        messagetosend = " Hey Dear , I am Ok Now. Please do not worry ";
+        messagetosend = "I feel safe now";
         
     }
         
@@ -410,14 +410,20 @@ function sendsafemessage(e)
 }
 
 
-
 function addnumbers(e)
 {
    
    
     var numberstoadd = document.getElementById('numberinputbox').value;
-     
-     if (localStorage.friendscontactstorage)
+    
+    if($("#numberinputbox").val().trim().length === 0 )
+    {
+        
+        $("#enterphonenumbererror").text("Please enter a valid phone number.");
+    }
+    else
+    {
+         if (localStorage.friendscontactstorage)
     {
        
         friendscontact = JSON.parse(localStorage["friendscontactstorage"]);
@@ -436,6 +442,9 @@ function addnumbers(e)
     document.getElementById('numberinputbox').value = "";
     
     showfriends();
+    }
+     
+    
     
    
     
@@ -517,6 +526,10 @@ function savesetting()
     localStorage["TrackMeValue"]= tracklocation;
          
     
+}
+function submitreport()
+{
+    alert("Coming Soon ");
 }
 
 function initsetting()
