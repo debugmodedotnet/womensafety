@@ -263,7 +263,14 @@ function onSuccess(position) {
 function onError(error) {
     }
 
-
+function syncreport()
+{
+     alert("Coming Soon ");
+}
+function deletereport()
+{
+     alert("Coming Soon ");
+}
 function senddangermessages(e)
 {
     
