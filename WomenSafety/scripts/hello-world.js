@@ -303,7 +303,7 @@ function senddangermessages(e)
        
        
          messagetosend = localStorage["DangerMessage"];
-        
+         alert("else" + messagetosend);
        
     }
     
@@ -311,6 +311,7 @@ function senddangermessages(e)
     {
         
         messagetosend = "URGENT! I may be in danger and need your help. Please call me back immidiately. This is not a test.";
+         alert(messagetosend);
         
     }
     
