@@ -123,37 +123,7 @@ function onGeolocationSuccess(position) {
         }
     });
     
-	var mapOptions = {
-                            
-		sensor:true,
-		center: latlng,
-		panControl: true,                            
-		zoomControl: true,
-		zoom: 10,
-		mapTypeId: google.maps.MapTypeId.ROADMAP,
-		streetViewControl: false,
-		mapTypeControl: true,
-		mapTypeControlOptions: {
-			position: google.maps.ControlPosition.TOP_RIGHT
-		},
-		zoomControl: true,
-		zoomControlOptions: {
-			style: google.maps.ZoomControlStyle.LARGE,
-			position: google.maps.ControlPosition.LEFT_CENTER
-		},
-                           
-	};
-    
-    var map = new google.maps.Map(
-                document.getElementById('map_canvas'),
-                mapOptions
-        );
-    
-    var marker = new google.maps.Marker({
-                position: latlng,
-                map: map
-    });
-   console.log(marker);
+	
    
 }
 
@@ -192,6 +162,7 @@ function starttrackinglocation()
 function stoptrackinglocation()
 {
     
+    alert("clear");
     var messagetosend = "I have reached my destination. Thanks for tracking my journey :)";
     if (watchID != null) {
             navigator.geolocation.clearWatch(watchID);
@@ -263,6 +234,62 @@ function onSuccess(position) {
 function onError(error) {
     }
 
+// Functions for show current location in the map 
+
+//var locId;
+
+function showMap() {
+	//locId = navigator.geolocation.watchPosition(onGeolocationSuccessCurrentLocation, onGeolocationErrorCurrentLocation, { enableHighAccuracy: true });
+    alert("map should render");
+	navigator.geolocation.getCurrentPosition(
+		onSuccessShowMap,
+		onErrorShowMap
+		);
+   
+}
+
+function onSuccessShowMap(position)
+{
+	var latlng =
+	new google.maps.LatLng(
+		position.coords.latitude,
+		position.coords.longitude);
+    
+    var mapOptions = {
+                            
+		sensor:true,
+		center: latlng,
+		panControl: false,                            
+		zoomControl: true,
+		zoom: 16,
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		streetViewControl: false,
+		mapTypeControl: true,
+	
+                           
+	};
+    
+    var map = new google.maps.Map(
+                document.getElementById('map_canvas'),
+                mapOptions
+        );
+    
+    var marker = new google.maps.Marker({
+                position: latlng,
+                map: map
+    });
+   console.log(marker);
+   console.log("map rendering");
+}
+
+function onErrorShowMap(error) {
+    
+    alert("error");
+}
+
+
+
+
 function syncreport()
 {
      alert("Coming Soon ");
@@ -303,15 +330,14 @@ function senddangermessages(e)
        
        
          messagetosend = localStorage["DangerMessage"];
-         alert("else" + messagetosend);
-       
+        
     }
     
     else
     {
         
         messagetosend = "URGENT! I may be in danger and need your help. Please call me back immidiately. This is not a test.";
-         alert(messagetosend);
+        
         
     }
     

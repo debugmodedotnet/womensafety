@@ -147,7 +147,7 @@
 				</li>
 				<li>
                     <span class="settinglabelspan">Comment</span>
-                  <textarea rows="3" column="70" id="commenttext" >
+                  <textarea rows="5" id="commenttext" >
                  </textarea>
 				</li>				
 				<li>
@@ -230,7 +230,7 @@
                             </li>
                             <li>
                              <span class="settinglabelspan"> Evaluation Mode  </span>                     
-                            <input type="checkkbox" data-role="switch" id="modeswitch" checked />
+                            <input type="checkkbox" data-role="switch" id="modeswitch" />
                             </li>
                              <li>
                                 <div id="savesettingbuttondiv">
@@ -310,11 +310,11 @@
          <!-- ********************************************************************************* -->
 		<!-- ************************************** Map ************************************** -->
 		<!-- ********************************************************************************* -->
-		<div data-role="view" id="map" data-title="Map" data-stretch="true">
-            
-			<div data-role="content" class="container">
+		<div data-role="view" id="map" data-title="Map" data-show="showMap" data-stretch="true" >            
+			<div>
 					<div id="map_canvas" style="width: 100%; height: 100%; position: absolute;"></div>
                 <img src="" /><img src="" />
+               
 			</div>
 		</div>
         

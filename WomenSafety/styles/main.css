@@ -356,6 +356,13 @@
  text-align:left;
  font-size : 14px;   
 }
+#commenttext
+{
+ text-align:left;
+ font-size : 14px;   
+}
+
+
 .settinglabelspan1
 {
    font-size: .8em;
