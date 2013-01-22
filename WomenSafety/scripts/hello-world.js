@@ -240,7 +240,7 @@ function onError(error) {
 
 function showMap() {
 	//locId = navigator.geolocation.watchPosition(onGeolocationSuccessCurrentLocation, onGeolocationErrorCurrentLocation, { enableHighAccuracy: true });
-    alert("map should render");
+    
 	navigator.geolocation.getCurrentPosition(
 		onSuccessShowMap,
 		onErrorShowMap
@@ -250,8 +250,7 @@ function showMap() {
 
 function onSuccessShowMap(position)
 {
-	var latlng =
-	new google.maps.LatLng(
+	var latlng = new google.maps.LatLng(
 		position.coords.latitude,
 		position.coords.longitude);
     
