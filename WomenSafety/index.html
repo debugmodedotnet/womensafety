@@ -19,21 +19,18 @@
         
         
          <!-- Home View -->
-        <div data-role="view" id="homeview" data-title="Home" data-show="homeviewshow">
-           
+        <div data-role="view" id="homeview" data-title="Home" data-show="homeviewshow">           
            
             
-            <a data-role="button" id="sendmessagebutton" data-click="senddangermessages">HELP ME</a> 
+            <a data-role="button" id="sendmessagebutton" data-click="senddangermessages">I'm in Danger</a> 
          
-            <div id="sendsafemessagebuttondiv">          
+            <div id="sendsafemessagebuttondiv">        
                   
-                <div data-role="footer">               
-                     <label id="trackmelabel">Track Me</label>   
+                            
+                    <label id="trackmelabel">Track Me</label>   
                     <input type="checkbox" data-role="switch" id="trackonoffswitch" /> <br/>   
                     <a data-role="button" id="sendsafemessgebutton" data-click ="sendsafemessage">I'm Safe</a>
-              
-                </div>
-           
+            
                     
             
            </div>
@@ -247,9 +244,11 @@
         
         <div data-role="layout" data-id="mobile-tabstrip">
             <header data-role="header">
+                <label id="prdversion">BETA version 1.0</label>
                 <div data-role="navbar">
                     <span data-role="view-title"></span>
-                    <a data-role="button" data-align="left" data-icon="globe" href="#map">Location</a>                  
+                    <a data-role="button" data-align="left" data-icon="globe" href="#map">Location</a>
+                   
                     <a  data-role="button" data-align="right" data-icon="settings"  href="#settingsview">Settings</a>
                     
                 </div>
