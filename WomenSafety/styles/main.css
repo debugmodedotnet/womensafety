@@ -321,6 +321,41 @@
     text-align:left;
     font-size : 14px;
 }
+#nametxt
+{
+ text-align:left;
+ font-size : 14px;   
+}
+#phonenumbertxt
+{
+ text-align:left;
+ font-size : 14px;   
+}
+#emailtxt
+{
+ text-align:left;
+ font-size : 14px;   
+}
+#safemessagetext
+{
+ text-align:left;
+ font-size : 14px;   
+}
+#dangermessagetext
+{
+ text-align:left;
+ font-size : 14px;   
+}
+#trackinginervaltxt
+{
+ text-align:left;
+ font-size : 14px;   
+}
+#trackingdurationtxt
+{
+ text-align:left;
+ font-size : 14px;   
+}
 .settinglabelspan1
 {
    font-size: .8em;
