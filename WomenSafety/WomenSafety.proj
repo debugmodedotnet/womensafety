@@ -32,6 +32,7 @@
       <Platform>Android</Platform>
     </Folder>
     <Folder Include="appimages" />
+    <Folder Include="scripts" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="App_Resources\iOS\icon.png" />
@@ -61,10 +62,6 @@
     <Content Include="appimages\emergency.png" />
     <Content Include="appimages\emergencyimg.png" />
     <Content Include="appimages\hospital.jpg" />
-    <Content Include="appimages\icenium-logo.png" />
-    <Content Include="appimages\iceniumicon.jpg" />
-    <Content Include="appimages\icimg.JPG" />
-    <Content Include="appimages\iclogo.jpg" />
     <Content Include="appimages\iclogoblack9.png" />
     <Content Include="appimages\indianpolice.jpg" />
     <Content Include="appimages\kendouilogo.png" />
@@ -80,7 +77,7 @@
     <Content Include="kendo\styles\images\KendoUI.ttf" />
     <Content Include="kendo\styles\images\KendoUI.woff" />
     <Content Include="kendo\styles\kendo.mobile.all.min.css" />
-    <Content Include="scripts\hello-world.js" />
+    <Content Include="scripts\helloworld.js" />
     <Content Include="styles\main.css" />
     <Content Include="cordova.ios.js">
       <Platform>iOS</Platform>
