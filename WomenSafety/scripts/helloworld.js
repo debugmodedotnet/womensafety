@@ -215,6 +215,23 @@ function onSuccess(position) {
 	if (navigator.network.connection.type == Connection.NONE) {
         
 		clocation = "http://maps.google.com/maps?q=" + position.coords.latitude + "," + position.coords.longitude ;
+        var friendsfronlocalstoragetosendmessage = [];
+					var numberstosend = "";
+					if (localStorage.friendscontactstorage) {
+                    
+						friendsfronlocalstoragetosendmessage = JSON.parse(localStorage["friendscontactstorage"]);
+						for (var i = 0;i < friendsfronlocalstoragetosendmessage.length;i++) {
+                        
+							numberstosend = friendsfronlocalstoragetosendmessage[i].friend + "," + numberstosend ;
+						}
+         
+						window.location.href = "sms:" + numberstosend + "?body=" + messagetosend + " Currently I am at   " + clocation;
+          
+					}
+					else {
+						window.location.href = "sms:" + numberstosend + "?body=" + messagetosend + "Currently I am at   " + clocation;
+					}
+                    
 	
 	}
         
@@ -228,6 +245,28 @@ function onSuccess(position) {
 				if ((results.length > 1) && results[1]) {
                
 					clocation = results[1].formatted_address;
+                    
+					var friendsfronlocalstoragetosendmessage = [];
+					var numberstosend = "";
+					if (localStorage.friendscontactstorage) {
+                    
+						friendsfronlocalstoragetosendmessage = JSON.parse(localStorage["friendscontactstorage"]);
+						for (var i = 0;i < friendsfronlocalstoragetosendmessage.length;i++) {
+                        
+							numberstosend = friendsfronlocalstoragetosendmessage[i].friend + "," + numberstosend ;
+						}
+         
+						window.location.href = "sms:" + numberstosend + "?body=" + messagetosend + " Currently I am at   " + clocation;
+          
+					}
+					else {
+						window.location.href = "sms:" + numberstosend + "?body=" + messagetosend + "Currently I am at   " + clocation;
+					}
+                    
+                    
+                    
+                    
+                    
                    
               
 				}
@@ -235,23 +274,7 @@ function onSuccess(position) {
 		});  
 	}
         
-				var friendsfronlocalstoragetosendmessage = [];
-				var numberstosend = "";
-				if (localStorage.friendscontactstorage) {
-                    
-					friendsfronlocalstoragetosendmessage = JSON.parse(localStorage["friendscontactstorage"]);
-					for (var i = 0;i < friendsfronlocalstoragetosendmessage.length;i++) {
-                        
-						numberstosend = friendsfronlocalstoragetosendmessage[i].friend + "," + numberstosend ;
-					}
-         
-					window.location.href = "sms:" + numberstosend + "?body=" + messagetosend + " Currently I am at   " + clocation;
-          
-				}
-				else
-                {
-					window.location.href = "sms:" + numberstosend + "?body=" + messagetosend + "Currently I am at   " + clocation;
-				}
+				
                             
    
      
