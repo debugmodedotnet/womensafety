@@ -110,6 +110,10 @@ function getLocation() {
 //=======================Geolocation Operations=======================//
 // onGeolocationSuccess Geolocation
 function onGeolocationSuccess(position) {
+  
+    // Check if the device has internet connectivity
+    if (navigator.onLine)
+    {
     // Use Google API to get the location data for the current coordinates
     var geocoder = new google.maps.Geocoder();
     var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -122,10 +126,18 @@ function onGeolocationSuccess(position) {
             }
         }
     });
+    }
+      
+    else 
+    {
+        currentlocation = "http://maps.google.com/maps?q=" + position.coords.latitude + "," +  position.coords.longitude ;
+    }
+     
+}
     
 	
    
-}
+
 
 // onGeolocationError Callback receives a PositionError object
 function onGeolocationError(error) {
@@ -196,7 +208,9 @@ function onSuccess(position) {
 	latitude = position.coords.latitude; 
 	longitude = position.coords.longitude;
     var messagetosend = "I am good as of now.";
-    
+    if (navigator.onLine)
+    {
+       
     var geocoder = new google.maps.Geocoder();
     var latlng = new google.maps.LatLng(latitude,longitude);
     geocoder.geocode({ "latLng": latlng }, function (results, status) {
@@ -228,6 +242,29 @@ function onSuccess(position) {
             }
         }
     });
+ }
+ 
+ else
+    
+    {
+        clocation = "http://maps.google.com/maps?q=" + position.coords.latitude + "," +  position.coords.longitude ;
+        var friendsfronlocalstoragetosendmessage = [];
+				var numberstosend = "";
+				if (localStorage.friendscontactstorage) {
+					friendsfronlocalstoragetosendmessage = JSON.parse(localStorage["friendscontactstorage"]);
+					for (var i = 0;i < friendsfronlocalstoragetosendmessage.length;i++) {
+                        
+						numberstosend = friendsfronlocalstoragetosendmessage[i].friend + "," + numberstosend ;
+					}
+         
+					window.location.href = "sms:" + numberstosend + "?body=" + messagetosend + " Currently I am at   " + clocation;
+          
+				}
+				else {
+					window.location.href = "sms:" + numberstosend + "?body=" + messagetosend + "Currently I am at   " + clocation;
+				}
+    }
+    
     
     
 }
@@ -263,8 +300,7 @@ function onSuccessShowMap(position)
 		zoom: 16,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		streetViewControl: false,
-		mapTypeControl: true,
-	
+		mapTypeControl: true,	
                            
 	};
     
@@ -277,6 +313,7 @@ function onSuccessShowMap(position)
                 position: latlng,
                 map: map
     });
+    
    console.log(marker);
    console.log("map rendering");
 }
@@ -564,6 +601,11 @@ function savesetting()
 function submitreport()
 {
     alert("Coming Soon ");
+    var username = localStorage["NameOfUser"];
+    var useremail = localStorage["EmailOfUser"];
+var userphonenumber = localStorage["PhoneNumberOfUser"];
+    
+    
 }
 
 function initsetting()
