@@ -102,6 +102,7 @@ function getCurrentDateandTime()
 }
 
 function getLocation() {
+   
     navigator.geolocation.getCurrentPosition(onGeolocationSuccess, onGeolocationError);
 }
 
@@ -112,16 +113,16 @@ function getLocation() {
 function onGeolocationSuccess(position) {
   
     // Check if the device has internet connectivity
+    currentlocation = "";
     if (navigator.network.connection.type==Connection.NONE)
     {
-        alert("hello offline");
+       
         currentlocation = "http://maps.google.com/maps?q=" + position.coords.latitude + "," +  position.coords.longitude ;
     }
       
     else 
     {
-       
-        alert("hello online");
+      
         // Use Google API to get the location data for the current coordinates
     var geocoder = new google.maps.Geocoder();
     var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -207,20 +208,19 @@ function stoptrackinglocation()
 // Let's display the position data
 function onSuccess(position) {
 	var  latitude, longitude;   
-    var clocation;
+    var clocation="";
 	latitude = position.coords.latitude; 
 	longitude = position.coords.longitude;
     var messagetosend = "I am good as of now.";
-    if (navigator.network.connection.type==Connection.NONE)
-    {
-       clocation = "http://maps.google.com/maps?q=" + position.coords.latitude + "," +  position.coords.longitude ;
-	
-    }
+	if (navigator.network.connection.type == Connection.NONE) {
         
-        else
-        {
+		clocation = "http://maps.google.com/maps?q=" + position.coords.latitude + "," + position.coords.longitude ;
+	
+	}
+        
+	else {
             
-            	var geocoder = new google.maps.Geocoder();
+		var geocoder = new google.maps.Geocoder();
 		var latlng = new google.maps.LatLng(latitude, longitude);
 		geocoder.geocode({ "latLng": latlng }, function (results, status) {
 			if (status == google.maps.GeocoderStatus.OK) {
@@ -228,15 +228,17 @@ function onSuccess(position) {
 				if ((results.length > 1) && results[1]) {
                
 					clocation = results[1].formatted_address;
+                   
               
 				}
 			}
-        });  
-        }
+		});  
+	}
         
 				var friendsfronlocalstoragetosendmessage = [];
 				var numberstosend = "";
 				if (localStorage.friendscontactstorage) {
+                    
 					friendsfronlocalstoragetosendmessage = JSON.parse(localStorage["friendscontactstorage"]);
 					for (var i = 0;i < friendsfronlocalstoragetosendmessage.length;i++) {
                         
@@ -246,15 +248,13 @@ function onSuccess(position) {
 					window.location.href = "sms:" + numberstosend + "?body=" + messagetosend + " Currently I am at   " + clocation;
           
 				}
-				else {
+				else
+                {
 					window.location.href = "sms:" + numberstosend + "?body=" + messagetosend + "Currently I am at   " + clocation;
 				}
                             
    
- 
- 
-
-    
+     
     
 }
 function onError(error) {
@@ -400,7 +400,7 @@ function senddangermessages(e)
 function sendsafemessage(e)
 {
     
-  alert("hi");
+  
     var messagetosend ;
    var modetouse=false;
     if(localStorage.ModeOfUse)
