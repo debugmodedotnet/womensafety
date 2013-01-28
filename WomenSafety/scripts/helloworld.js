@@ -27,7 +27,7 @@ function homeviewshow()
     
     $("#trackonoffswitch").data("kendoMobileSwitch").bind("change", function(e) {
         
-     console.log(e.checked); // true or false
+    
         
         if(e.checked)
         {
@@ -112,9 +112,17 @@ function getLocation() {
 function onGeolocationSuccess(position) {
   
     // Check if the device has internet connectivity
-    if (navigator.onLine)
+    if (navigator.network.connection.type==Connection.None)
     {
-    // Use Google API to get the location data for the current coordinates
+        alert("hello offline");
+        currentlocation = "http://maps.google.com/maps?q=" + position.coords.latitude + "," +  position.coords.longitude ;
+    }
+      
+    else 
+    {
+       
+        alert("hello online");
+        // Use Google API to get the location data for the current coordinates
     var geocoder = new google.maps.Geocoder();
     var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
     geocoder.geocode({ "latLng": latlng }, function (results, status) {
@@ -126,11 +134,6 @@ function onGeolocationSuccess(position) {
             }
         }
     });
-    }
-      
-    else 
-    {
-        currentlocation = "http://maps.google.com/maps?q=" + position.coords.latitude + "," +  position.coords.longitude ;
     }
      
 }
@@ -174,7 +177,7 @@ function starttrackinglocation()
 function stoptrackinglocation()
 {
     
-    alert("clear");
+   
     var messagetosend = "I have reached my destination. Thanks for tracking my journey :)";
     if (watchID != null) {
             navigator.geolocation.clearWatch(watchID);
@@ -208,19 +211,29 @@ function onSuccess(position) {
 	latitude = position.coords.latitude; 
 	longitude = position.coords.longitude;
     var messagetosend = "I am good as of now.";
-    if (navigator.onLine)
+    if (navigator.network.connection.type==Connection.None)
     {
-       
-    var geocoder = new google.maps.Geocoder();
-    var latlng = new google.maps.LatLng(latitude,longitude);
-    geocoder.geocode({ "latLng": latlng }, function (results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
+       clocation = "http://maps.google.com/maps?q=" + position.coords.latitude + "," +  position.coords.longitude ;
+	
+    }
+        
+        else
+        {
             
-            if ((results.length > 1) && results[1]) {
+            	var geocoder = new google.maps.Geocoder();
+		var latlng = new google.maps.LatLng(latitude, longitude);
+		geocoder.geocode({ "latLng": latlng }, function (results, status) {
+			if (status == google.maps.GeocoderStatus.OK) {
+            
+				if ((results.length > 1) && results[1]) {
                
-                clocation = results[1].formatted_address;
+					clocation = results[1].formatted_address;
               
-               
+				}
+			}
+        });  
+        }
+        
 				var friendsfronlocalstoragetosendmessage = [];
 				var numberstosend = "";
 				if (localStorage.friendscontactstorage) {
@@ -237,34 +250,10 @@ function onSuccess(position) {
 					window.location.href = "sms:" + numberstosend + "?body=" + messagetosend + "Currently I am at   " + clocation;
 				}
                             
-         
-                
-            }
-        }
-    });
- }
+   
  
- else
-    
-    {
-        clocation = "http://maps.google.com/maps?q=" + position.coords.latitude + "," +  position.coords.longitude ;
-        var friendsfronlocalstoragetosendmessage = [];
-				var numberstosend = "";
-				if (localStorage.friendscontactstorage) {
-					friendsfronlocalstoragetosendmessage = JSON.parse(localStorage["friendscontactstorage"]);
-					for (var i = 0;i < friendsfronlocalstoragetosendmessage.length;i++) {
-                        
-						numberstosend = friendsfronlocalstoragetosendmessage[i].friend + "," + numberstosend ;
-					}
-         
-					window.location.href = "sms:" + numberstosend + "?body=" + messagetosend + " Currently I am at   " + clocation;
-          
-				}
-				else {
-					window.location.href = "sms:" + numberstosend + "?body=" + messagetosend + "Currently I am at   " + clocation;
-				}
-    }
-    
+ 
+
     
     
 }
@@ -411,7 +400,8 @@ function senddangermessages(e)
 function sendsafemessage(e)
 {
     
-   var messagetosend ;
+  alert("hi");
+    var messagetosend ;
    var modetouse=false;
     if(localStorage.ModeOfUse)
     {
