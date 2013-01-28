@@ -112,7 +112,7 @@ function getLocation() {
 function onGeolocationSuccess(position) {
   
     // Check if the device has internet connectivity
-    if (navigator.network.connection.type==Connection.None)
+    if (navigator.network.connection.type==Connection.NONE)
     {
         alert("hello offline");
         currentlocation = "http://maps.google.com/maps?q=" + position.coords.latitude + "," +  position.coords.longitude ;
@@ -211,7 +211,7 @@ function onSuccess(position) {
 	latitude = position.coords.latitude; 
 	longitude = position.coords.longitude;
     var messagetosend = "I am good as of now.";
-    if (navigator.network.connection.type==Connection.None)
+    if (navigator.network.connection.type==Connection.NONE)
     {
        clocation = "http://maps.google.com/maps?q=" + position.coords.latitude + "," +  position.coords.longitude ;
 	
@@ -591,9 +591,10 @@ function savesetting()
 function submitreport()
 {
     alert("Coming Soon ");
-    var username = localStorage["NameOfUser"];
+  /*  var username = localStorage["NameOfUser"];
     var useremail = localStorage["EmailOfUser"];
 var userphonenumber = localStorage["PhoneNumberOfUser"];
+    */
     
     
 }
