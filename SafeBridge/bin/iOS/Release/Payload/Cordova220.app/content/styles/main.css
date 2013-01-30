@@ -1,0 +1,413 @@
+
+#numberinputbox
+{
+    border: 1px solid ;    
+    margin-left: 0.2em;
+    margin-right : auto;
+    margin-top: 0.5em;
+    background:white;
+    color: green;
+    font-weight: bold;
+    font-size: 18px;    
+    
+    
+}
+
+#addnumbersdiv
+{
+    
+    width: 100%; 
+    margin: 0px auto; 
+    text-align: center;
+}
+
+#homeview
+{
+    width: 100%; 
+    height : 100%;
+    margin: 0px auto; 
+    text-align: center;
+    position:relative
+}
+#homefooter
+{
+    position:absolute;
+    bottom:0;
+}
+#switchsettings
+{
+        
+        margin-left: 0.5em;
+        margin-top: 1.00em;
+    
+}
+#locationswitchspan
+{
+        font-weight: bold;
+        font-size: 18px;
+        text-decoration: none;        
+        margin-left: 0.5em;        
+        margin-top: 0.5em;  
+       
+        
+    
+}
+#modeswitchspan
+{
+        font-weight: bold;
+        font-size: 18px;
+        text-decoration: none;        
+        margin-left: 0.5em;        
+        margin-top: 4.5em;  
+      
+}
+
+
+#friendviewlist 
+{
+     margin-top: 1.5em;
+     height : 100px;
+}
+
+
+
+#sendmessagebutton
+{
+        -webkit-transform: rotateX( 35deg );
+        position: relative;
+        display: inline-block;
+        width: 200px;
+        height : 200px;
+        padding: 42px 15px;     
+    
+        background-color:  #D00000    ;
+        color: #fff;
+        font-weight: bold;
+        font-size: 50px;
+        text-decoration: none;
+        text-align: center;
+        vertical-align: text-middle;
+        
+        text-shadow: 0px -1px 0px rgba(0,0,0,0.5);
+
+        border: 1px solid;
+        border-color: #B80000;
+        border-radius: 100%;
+        -moz-border-radius: 100px;
+        -webkit-border-radius: 100x;
+
+        box-shadow: 		inset 0px -4px 5px rgba(255,255,255,0.2),
+                            inset 0px 1px 5px rgba(255,255,255,0.2),
+                            /**/
+                            0px 12px 0px #231F20,
+                            0px 14px 0px #231F20,
+                            0px 16px 0px #231F20,
+                            /**/
+                            0px 8px 5px rgba(0,0,0,0.5);
+
+        -moz-box-shadow: 	inset 0px -4px 5px rgba(255,255,255,0.2),
+                            inset 0px 1px 5px rgba(255,255,255,0.2),
+                            /**/
+                            0px 12px 0px #231F20,
+                            0px 14px 0px #231F20,
+                            0px 16px 0px #231F20,
+                            /**/
+                            0px 8px 5px rgba(0,0,0,0.5);
+
+        -webkit-box-shadow: inset 5px -4px 5px rgba(255,255,255,0.2),
+                            inset 5px 1px 5px rgba(255,255,255,0.2),
+                            /**/
+                            0px 12px 0px #231F20,
+                            0px 14px 0px #231F20,
+                            0px 16px 0px #231F20;
+
+}
+
+
+
+
+.pullImage {
+	width: 64px;
+    height: 64px;
+    border-radius: 3px;
+    float: left;
+    margin-right: 10px;
+}
+.listTime
+{
+	font-size: .8em;
+	font-weight: 100;
+    
+}
+.listTimered
+{
+	font-size: .8em;
+	font-weight: 100;
+    color:green;
+    
+}
+
+#enterphonenumbererror
+{
+	font-size: .8em;
+	font-weight: 100;
+    color:red;
+    
+}
+.details-link {
+    margin-top: -1.2em;
+    position: absolute;
+    right: 0.6em;
+    top: 50%;
+}
+#timebox
+{
+    font-size: .8em;
+	font-weight: 100;
+    color : green;
+}
+#locationbox
+{
+    font-size: .8em;
+	font-weight: 100;
+    color : green;
+}
+#searchsubmitButton
+{
+     margin-left: 5em;
+     margin-top: 1em;
+    font-size : 16px;    
+    color : white ;
+}
+
+#sendsafemessgebutton
+{
+    margin-top : 20px; 
+    color:white;
+    background-color:green;  
+    width : 50%;
+    font-size : 20px;
+ }
+
+#savesettingbutton
+{
+    margin-top : 20px; 
+    color:white;
+    background-color:green;  
+    width : 50%;
+    font-size : 20px;
+    text-align:center;
+   
+ }
+#addfriendsbutton
+{
+        
+    margin-top : 20px; 
+    color:white;
+    background-color:green;  
+    width : 50%;    
+    text-align:center;
+    
+    
+}
+#safemessagetext
+{
+    margin-left: -20px;
+}
+#sendsafemessagebuttondiv
+{
+  width: 100%;
+  height : auto;
+  position:absolute;
+  
+  text-align: center;
+  
+    
+}
+#prdversion
+{
+     color :gray;
+}
+
+#addnumbersdiv
+{
+    width: 100%;
+  height : auto;
+  margin : 0px auto;
+  text-align: center;
+}
+
+#reportbuttonsdiv
+{
+    width: 100%;
+  height : auto;
+  margin : 0px auto;
+  text-align: center;
+}
+#savesettingbutton
+{
+    margin-top : 20px; 
+    color:white;
+    background-color:green; 
+    width: 50%;
+   
+}
+#syncreportbutton
+{
+    margin-top : 10px; 
+    color:white;
+    background-color:green; 
+    
+}
+#deletereportbutton
+{
+    margin-top : 10px; 
+    color:white;
+    background-color:green; 
+    
+}
+#showsavedreportbuttondiv
+{
+     width: 100%;
+  height : auto;
+  margin : 0px auto;
+  text-align: center;
+}
+#savesettingbuttondiv
+{
+      width: 100%;
+  height : auto;
+  margin : 0px auto;
+  text-align: center;
+}
+#syncdeletebuttondiv
+{
+  width: 100%;
+  height : auto;
+  margin : 0px auto;
+  text-align: center;
+}
+#showreport
+{
+    margin-top : 20px; 
+    color:white;
+    background-color:green; 
+    width: 50%;
+   
+    
+ }
+#savereport
+{
+    margin-top : 20px; 
+    color:white;
+    background-color:green;  
+   
+    
+ }
+#submitreport
+{
+    margin-top : 20px; 
+    color:white;
+    background-color:green;  
+    
+   
+ }
+#trackonoffswitch1
+{
+    margin-left: 20px;
+}
+#trackmelabel
+{
+    text-align:left;
+    font-size : 20px;
+    margin-right: 20px;
+    
+}
+.settinglabelspan
+{
+    text-align:left;
+    font-size : 14px;
+}
+#nametxt
+{
+ text-align:left;
+ font-size : 14px;   
+}
+#phonenumbertxt
+{
+ text-align:left;
+ font-size : 14px;   
+}
+#emailtxt
+{
+ text-align:left;
+ font-size : 14px;   
+}
+#safemessagetext
+{
+ text-align:left;
+ font-size : 14px;   
+}
+#dangermessagetext
+{
+ text-align:left;
+ font-size : 14px;   
+}
+#trackinginervaltxt
+{
+ text-align:left;
+ font-size : 14px;   
+}
+#trackingdurationtxt
+{
+ text-align:left;
+ font-size : 14px;   
+}
+#commenttext
+{
+ text-align:left;
+ font-size : 14px;   
+}
+
+
+.settinglabelspan1
+{
+   font-size: .8em;
+	font-weight: 100;
+    color : green;
+}
+#iceniumLogo
+{
+	margin: 12pt;
+	height: 100px;
+	background-image: url('../appimages/tlogop.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+#about-text
+{
+	padding: 8px;
+	margin: 6pt;
+	font-size: 1.2em;
+	font-weight: 100;
+	line-height: 1.5em;
+  }
+#icnlogo
+{
+   vertical-align : middle;   
+}
+#kedouimlogo
+{
+    vertical-align : middle;   
+    margin:0px;
+    padding : 0px;
+}
+#about-text
+{
+	padding: 8px;
+	margin: 6pt;
+	font-size: 1.2em;
+	font-weight: 100;
+	line-height: 1.5em;
+  }

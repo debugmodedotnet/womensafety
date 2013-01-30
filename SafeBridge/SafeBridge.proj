@@ -11,7 +11,7 @@
     <DeviceOrientations>Portrait;Landscape</DeviceOrientations>
     <iOSStatusBarStyle>Default</iOSStatusBarStyle>
     <BundleVersion>1.0</BundleVersion>
-    <AndroidVersionCode>6</AndroidVersionCode>
+    <AndroidVersionCode>7</AndroidVersionCode>
     <AndroidHardwareAcceleration>True</AndroidHardwareAcceleration>
   </PropertyGroup>
   <ItemGroup>

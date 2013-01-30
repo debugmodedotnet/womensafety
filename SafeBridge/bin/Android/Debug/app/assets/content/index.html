@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8" />
+        <script src="cordova.js"></script>
+        <script src="kendo/js/jquery.min.js"></script>
+        <script src="kendo/js/kendo.mobile.min.js"></script>
+        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+        
+        <script src="scripts/helloworld.js"></script>
+        
+
+        <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+        <link href="styles/main.css" rel="stylesheet" />
+    </head>
+    <body>
+        
+        
+        
+         <!-- Home View -->
+        <div data-role="view" id="homeview" data-title="Home" data-show="homeviewshow">           
+           
+            
+            <a data-role="button" id="sendmessagebutton" data-click="senddangermessages">I'm in Danger</a> 
+         
+            <div id="sendsafemessagebuttondiv">        
+                  
+                            
+                    <label id="trackmelabel">Track Me</label>   
+                    <input type="checkbox" data-role="switch" id="trackonoffswitch" /> <br/>   
+                    <a data-role="button" id="sendsafemessgebutton" data-click ="sendsafemessage">I'm Safe</a>
+            
+                    
+            
+           </div>
+           
+        </div>
+
+        <!-- Friends View -->
+        <div data-role="view" id="friendsview" data-title="Friends" data-show="showfriends" >  
+          
+
+            <div id="addnumbersdiv">    
+                    <input id="numberinputbox" type="tel" /> <br/>
+                    <span id="enterphonenumbererror"></span><br/>
+                    <a id="addfriendsbutton" data-role="button" data-click="addnumbers">Add Numbers to Notify</a>
+            </div>
+           
+            <div id="friendlistdiv" >
+                <h3>Your Friends</h3>
+            <ul id="friendlist"										
+					data-endlessScroll="true"
+					data-role="listview"  
+                    data-style="inset"
+                    data-click="deletefriend"
+					>
+			</ul>
+           
+            </div>
+           
+        </div>
+                       
+          <!-- Template to display Friends Numbers -->
+        
+        <script type= "text/x-kendo-template" id="friendstemplate">
+          		
+            <span>
+            #= friend # 
+           <a data-role="detailbutton"  data-style="rowdelete" ></a>
+           </span>
+            
+            
+		</script>
+        
+        
+          <!-- Resource  View -->
+        <div data-role="view" id="resourceview" data-title="Resource">
+           
+           <div>
+				<ul id="resourcelist"					
+					data-endlessScroll="true"
+					data-role="listview"
+					data-style="inset">                    
+                    <li><a href="#policestationview" class="km-listview-link" data-role="listview-link"><img class="pullImage" src="appimages\indianpolice.jpg"/>Police Stations</a></li>
+                    <li><a href="#policestationview" class="km-listview-link" data-role="listview-link"><img class="pullImage" src="appimages\hospital.jpg"/>Hospitals</a></li>
+                     <li><a href="#policestationview" class="km-listview-link" data-role="listview-link"><img class="pullImage" src="appimages\emergency.png"/>Emergency Number</a></li>
+                    <li><a href="#policestationview" class="km-listview-link" data-role="listview-link"><img class="pullImage" src="appimages\ngoimage.png"/>NGO</a></li>
+                   
+				</ul>
+			</div>
+       
+        </div>
+        
+         <!-- Police Staions View -->
+        <div data-role="view" id="policestationview">
+            
+            
+            <ul data-role="listview" 
+                id="policestationlistview" 
+                data-style="inset"
+                selectable="true"
+                data-source="policestationssetailsdelhidatasource"
+                data-template="policestationtemplate"
+                data-click="callthepolice">                                
+            </ul>
+            
+             
+        </div>
+        
+        <!-- Template to display Police Stations Numbers -->
+       <script type= "text/x-kendo-template" id="policestationtemplate">
+         <div>		
+           <a data-role="listview-link" data-style="trash">
+           #=name # <br/>
+          <span class="listTimered">#= phonenumber#</span></a>
+          <a data-role="button" class="details-link" data-icon="action">Call</a>
+          </div>          
+		</script>
+        
+       
+        
+        
+        
+        <!-- Report View -->
+        <div data-role="view" id="reportview" data-title="Report" data-show="initreport">
+          
+			<ul data-role="listview">
+
+				<li>
+				  <span class="settinglabelspan">Date/Time </span>          
+				 <label  id="timebox"> </label>
+				</li>
+				<li>
+					<span class="settinglabelspan">Location </span>              
+					<label id="locationbox"> </label>
+				</li>
+				<li>
+				 <span class="settinglabelspan">	Type of Report </span>           
+					<select id="typeofreport">
+                        <option value="VerbalAbuse">Verbal Abuse</option>
+						<option value="Rape">Rape</option>
+						<option value="EveTeasing">Eve Teasing</option>
+						<option value="Molestation">Molestation</option>						
+						<option value="Harassmentatwork">Harassment at work</option>
+
+					</select>
+				</li>
+				<li>
+                    <span class="settinglabelspan">Comment</span>
+                  <textarea rows="5" id="commenttext" >
+                 </textarea>
+				</li>				
+				<li>
+					<div id="reportbuttonsdiv">
+						<a id="savereport" data-role="button" data-click="savereport">Save</a>
+                        <a id="submitreport" data-role="button" data-click="submitreport">Submit</a>
+                       
+						                       
+					</div>
+				</li>
+                <li>
+                    <div id="showsavedreportbuttondiv">
+                         <a id="showreport" data-role="button" data-click="showsavedreport">Show</a>
+                    </div>
+                </li>
+
+			</ul>
+		
+        </div>
+        
+         <!-- Saved Report Show  View -->
+        
+        <div id="savedreportshowview" data-role="view" data-tile="Saved Reports" >
+           <ul data-role="listview" 
+               id="savedreportlistview"
+               >
+           </ul> 
+            
+        </div>
+        
+        <!-- Saved Report Show  Template -->
+         <script type= "text/x-kendo-template" id="savedreporttemplate">
+         <div>		
+           <a data-role="listview-link">
+           #=comment# <br/>
+          <span class="listTime">  #=location# #= time#</span></a>
+          <div id="syncdeletebuttondiv">  
+          <a data-role="button" id="syncreportbutton" data-click="syncreport" data-icon="action">Sync</a>
+          <a data-role="button" id="deletereportbutton" data-click="deletereport" data-icon="trash">Delete</a>
+          </div>  
+          </div>          
+		</script>
+        
+          <!-- Settings View View -->
+        <div data-role="view" id="settingsview" data-show="initsetting">					
+                    
+                        <ul data-role="listview" data-style="inset">
+                            <li>
+                                <span class="settinglabelspan1">Press UPDATE to apply changes</span>
+                            </li>
+                            <li>
+                               <span class="settinglabelspan"> Name </span><input id="nametxt" type="text"/>
+                            </li>
+                             <li>
+                               <span class="settinglabelspan"> Phone Number</span> <input id="phonenumbertxt" type="tel"/>
+                            </li>
+                             <li>
+                               <span class="settinglabelspan"> EMail </span> <input id="emailtxt" type="email"/>
+                            </li>
+                            <li>
+                               <span class="settinglabelspan"> Safe Message  </span>                           
+                           <textarea rows="5" id="safemessagetext" > </textarea>
+                            </li>                            
+                            <li>
+                              <span class="settinglabelspan">  Danger Message </span>
+                              <textarea rows="5" id="dangermessagetext" > </textarea>
+                            </li>
+                              <li>
+                              <span class="settinglabelspan"> Track Intravel in Sec </span>
+                              
+                              <input id="trackinginervaltxt" type="number"/>                               
+                            </li>
+                              <li>
+                             <span class="settinglabelspan"> Track Duration in Min </span>
+                              <input id="trackingdurationtxt" type="number"/>
+                               
+                            </li>                           
+                             <li> <span class="settinglabelspan">Track Location  </span>                               
+                               <input type="checkkbox" data-role="switch" id="trackmelocationswitch" />                                
+                            </li>
+                            <li>
+                             <span class="settinglabelspan"> Evaluation Mode  </span>                     
+                            <input type="checkkbox" data-role="switch" id="modeswitch" />
+                            </li>
+                             <li>
+                                <div id="savesettingbuttondiv">
+                                <a id="savesettingbutton" data-role="button" data-click="savesetting">Update</a>
+                                </div>
+                            </li>
+                            
+                        </ul>
+                    </div>                    
+		
+        <!--Layout of the Application -->
+        
+        <div data-role="layout" data-id="mobile-tabstrip">
+            <header data-role="header">
+                <label id="prdversion">BETA Version</label>
+                <div data-role="navbar">
+                    <span data-role="view-title"></span>
+                    <a data-role="button" data-align="left" data-icon="globe" href="#map">Location</a>
+                   
+                    <a  data-role="button" data-align="right" data-icon="settings"  href="#settingsview">Settings</a>
+                    
+                </div>
+                
+                 <!--Setting Model View -->
+			
+            </header>
+
+            <div data-role="footer">
+                <div data-role="tabstrip">
+                    <a href="#homeview" data-icon="home">Home</a>                     
+                    <a href="#reportview" data-icon="share">Report</a> 
+                    <a href="#resourceview" data-icon="organize">Resources</a> 
+                    <a href="#friendsview" data-icon="add">Friends</a> 
+                    <a href="#aboutview" data-icon="about">About</a> 
+                </div>
+            </div>
+        </div>
+   
+        <!--Layout of the Application in Phone Number Search -->
+        
+        <div data-role="layout" data-id="mobile-tabstrip-search">
+            <header data-role="header">
+                <div data-role="navbar">
+                    <span data-role="view-title"></span>
+                    <a data-role="button" data-align="left" data-icon="globe" href="#map">Location</a>
+                    <a  data-role="button" data-align="right" data-icon="search" href="#modal-search" data-rel="modalview">Search</a>
+                    
+                </div>
+                
+                 <!--Setting Model View -->
+                
+				<div data-role="modalview" id="modal-search" style="width: 260px; height: 260px;">
+					<div data-role="navbar">
+						<span>Search</span>
+						<a data-click="closeModalViewGroup" data-role="button" data-align="right">Close</a>
+					</div>			
+					<input type="text" id="txtsearch" value="" />
+					<div  style="display:block;"></div>
+					<a id="searchsubmitButton" data-role="button" data-click="GetPoliceStationSearchedResultView" data-icon="search">Search</a>
+					<div  style="display:block;"></div>
+					<div  style="display:block;"></div>
+					<span id="errorsearchdiv"></span>
+				</div>
+			
+            </header>
+
+            <div data-role="footer">
+                <div data-role="tabstrip">
+                    <a href="#homeview" data-icon="home">Home</a>                     
+                    <a href="#reportview" data-icon="share">Report</a> 
+                    <a href="#resourceview" data-icon="organize">Resources</a> 
+                     <a href="#friendsview" data-icon="add">Friends</a> 
+                    <a href="#aboutview" data-icon="about">About</a>
+                </div>
+            </div>
+        </div>
+        
+        
+         <!-- ********************************************************************************* -->
+		<!-- ************************************** Map ************************************** -->
+		<!-- ********************************************************************************* -->
+		<div data-role="view" id="map" data-title="Map" data-show="showMap" data-stretch="true" >            
+			<div>
+					<div id="map_canvas" style="width: 100%; height: 100%; position: absolute;"></div>
+                <img src="" /><img src="" />
+               
+			</div>
+		</div>
+        
+         <!-- ********************************************************************************* -->
+		<!-- ************************************* About ************************************* -->
+		<!-- ********************************************************************************* -->
+		<div data-role="view" id="aboutview" data-title="About">
+			<div data-role="content" class="container">
+				<div id="iceniumLogo"></div>
+				<div id="about-text">
+                   Telerik is a market-leading provider of end-to-end solutions for <a href="http://www.telerik.com/developer-productivity-tools.aspx" data-rel="external">application development</a>,<a href="http://www.telerik.com/automated-testing-tools.aspx" data-rel="external">automated testing</a><a href="http://www.telerik.com/team-productivity-tools.aspx" data-rel="external">agile project management</a>, <a data-rel="external" href="http://www.sitefinity.com/">content management</a> and <a data-rel="external" href="http://www.icenium.com/">cloud-based cross-platform mobile development.</a>
+					Telerik’s mission is to make software development easier and more enjoyable by providing to technical and business professionals software tools, which help them maximize their productivity and "deliver more than expected” every day.
+                    <br/>This mobile app was built with <img id="icnlogo" src="appimages/iclogoblack9.png"/> and <img id="kedouimlogo" src="appimages/kendouilogo1.png"/> Kendo UI Mobile<br /><br />
+					<a href="https://www.icenium.com/" data-rel="external">Icenium</a> is the industry’s first Integrated Cloud Environment (ICE)
+                        which eliminates the complexity associated with cross-platform mobile
+                        development for iOS and Android. Icenium lets
+                        mobile and web developers use web languages they already know – HTML5,
+                        CSS3 and JavaScript – to build apps that run natively on devices, and
+                        which can be distributed through the Apple App Store and the Google Play Store 
+                        <br /><br />
+                      <a href="https://www.kendoui.com/" data-rel="external"> Kendo UI Mobile </a>
+                    is Telerik’s toolset of easy-to-use jQuery mobile widgets and built-in rich components for fast mobile application development. Kendo UI Mobile empowers developers to build native-like mobile apps for iPhone, Android and Blackberry, and deliver unmatched user experience without any extra coding. 
+                    
+				</div>
+			</div>
+		</div>
+        
+        <script>
+            var app = new kendo.mobile.Application(document.body, { transition: "slide", layout: "mobile-tabstrip" });
+        </script>
+    </body>
+</html>
