@@ -332,7 +332,7 @@ function onSuccessShowMap(position)
 
 function onErrorShowMap(error) {
     
-    alert("error");
+    alert("The map can't be shown right now. Please try again later.");
 }
 
 
